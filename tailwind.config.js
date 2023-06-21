@@ -12,6 +12,11 @@ export default {
 			"rgit": ["Coolvetica_rg_it", "sans-serif"],
 			"rg": ["Coolvetica_rg", "sans-serif"]
 		},
+		extend: {
+			colors: {
+				"custom-red": "#F05D5E"
+			}
+		}
 	},
 	plugins: [],
 };
