@@ -20,7 +20,6 @@ const HomePage = () => {
 						{/* Flex column of the lines on the left side of the screen */}
 						<div className="flex flex-col">
 							{/* Lines on the right side of the screen */}
-
 							<div className="h-[32rem] w-1 rounded-full bg-custom-red" />
 							<div className="h-16 mt-6 w-1 rounded-full bg-custom-red" />
 						</div>
