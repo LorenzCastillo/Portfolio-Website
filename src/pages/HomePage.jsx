@@ -18,14 +18,14 @@ const HomePage = () => {
 					<div className="flex flex-row items-center">
 
 						{/* Flex column of the lines on the left side of the screen */}
-						<div className="flex flex-col">
+						<div className="md:flex hidden flex-col">
 							{/* Lines on the right side of the screen */}
 							<div className="h-[32rem] w-1 rounded-full bg-custom-red" />
 							<div className="h-16 mt-6 w-1 rounded-full bg-custom-red" />
 						</div>
 
 						{/* Flex column of the text */}
-						<div className="flex flex-col ml-10 flex-1">
+						<div className="flex flex-col md:ml-10 flex-1">
 							<h1 className="font-rg text-[5rem] text-white leading-none">Hello</h1>
 							<h1 className="font-rg text-[5rem] text-white leading-none">
 								<span>I{"'"}m Lorenz</span>
@@ -40,10 +40,14 @@ const HomePage = () => {
 							</div>
 
 							<h1 className="font-rg text-4xl text-white mt-6 leading-none">I am into Software / Web Development</h1>
+
+							<div className="md:hidden flex mt-10 flex-col">
+								<ProfilePicture />
+							</div>
 						</div>
 
 						{/* Flex column of my image */}
-						<div className="flex flex-col">
+						<div className="md:flex hidden flex-col">
 							<ProfilePicture />
 						</div>
 					</div>
