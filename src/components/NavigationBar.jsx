@@ -11,12 +11,17 @@ const NavigationBar = (props) => {
 	const [displayStatus, setDisplayStatus] = useState("hidden");
 
 	const handlePopupMenu = () => {
-		if (toggle) {
+		if (!toggle) {
 			setDisplayStatus("inline");
+			console.log(displayStatus);
+
 		} else {
 			setDisplayStatus("hidden");
+			console.log(displayStatus);
+
 		}
 		setToggle(!toggle);
+		console.log(toggle);
 	};
 
 	const containerRef = useRef(null);
