@@ -1,3 +1,5 @@
+// 3rd Party Imports
+import { useEffect, useRef } from "react";
 // Local Imports
 import { useRoutes } from "react-router-dom";
 import HomePage from "./pages/HomePage";

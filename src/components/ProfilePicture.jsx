@@ -18,7 +18,7 @@ const defaultOptions = {
 const ProfilePicture = () => {
 	return (
 		<>
-			<div className="w-72 h-72">
+			<div className="w-80 h-80">
 				<Tilt options={defaultOptions}>
 					<img className="rounded-2xl shadow-2xl" src={ProfilePictureImage} alt=""/>
 				</Tilt>

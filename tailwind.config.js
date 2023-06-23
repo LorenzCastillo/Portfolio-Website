@@ -14,7 +14,8 @@ export default {
 		},
 		extend: {
 			colors: {
-				"custom-red": "#F05D5E"
+				"custom-red": "#F05D5E",
+				"custom-dark-purple": "#02060F"
 			}
 		}
 	},

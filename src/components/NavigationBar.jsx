@@ -11,7 +11,7 @@ const NavigationBar = () => {
 					<h1 className="font-rg text-4xl text-white">Lorenz Castillo</h1>
 				</div>
 
-				<div className="lg:flex hidden flex-row ml-16 gap-8">
+				<div className="lg:flex hidden flex-row ml-14 gap-8">
 					<Link to={"/home"}>
 						<p className="font-rg text-xl border-2 px-4 py-2 cursor-pointer">Home</p>
 					</Link>
