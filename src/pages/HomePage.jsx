@@ -33,7 +33,7 @@ const HomePage = () => {
 
 				{/* Navigation Bar */}
 				<div className="relative">
-					<NavigationBar />
+					<NavigationBar isHomePage={true}/>
 				</div>
 
 				<div className="relative mx-[12%] h-[85%] top-[5%]">
