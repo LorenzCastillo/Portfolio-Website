@@ -61,15 +61,14 @@ const HomePage = () => {
 
 								{/* MOBILE VIEW: My Portrait Photo */}
 								<div className="lg:hidden flex flex-row mt-10">
-									<Link to={"https://www.linkedin.com/in/lorenzcastillo/"} className="self-center">
+									<Link to={"https://www.linkedin.com/in/lorenzcastillo/"} className="self-center" target="_blank">
 										<img src={LinkedinLogo} alt="" width={50} className="self-center"/>
 									</Link>
-									<Link to={"https://github.com/LorenzCastillo"} className="self-center">
+									<Link to={"https://github.com/LorenzCastillo"} className="self-center" target="_blank">
 
 										<img src={GithubLogo} alt="" width={50} className="self-center ml-8"/>
 									</Link>
-									<Link className="self-center">
-
+									<Link className="self-center" target="_blank">
 										<img src={EmailLogo} alt="" width={50} className="self-center ml-8"/>
 									</Link>
 								</div>
@@ -91,13 +90,13 @@ const HomePage = () => {
 							{/* Line decoration 2 (Disappears in mobile view)*/}
 							<div className="hidden lg:flex h-24 w-1 rounded-full bg-custom-red" />
 							{/* Logos */}
-							<Link to={"https://www.linkedin.com/in/lorenzcastillo/"} className="self-center">
+							<Link to={"https://www.linkedin.com/in/lorenzcastillo/"} className="self-center" target="_blank">
 								<img src={LinkedinLogo} alt="" width={50} className="hidden lg:inline ml-10"/>
 							</Link>
-							<Link to={"https://github.com/LorenzCastillo"} className="self-center">
+							<Link to={"https://github.com/LorenzCastillo"} className="self-center" target="_blank">
 								<img src={GithubLogo} alt="" width={50} className="hidden lg:inline ml-8"/>
 							</Link>
-							<Link className="self-center">
+							<Link className="self-center" target="_blank">
 								<img src={EmailLogo} alt="" width={50} className="hidden lg:inline ml-8"/>
 							</Link>
 						</div>
