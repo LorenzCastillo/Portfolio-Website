@@ -16,7 +16,9 @@ export default {
 			colors: {
 				"custom-red": "#F05D5E",
 				"custom-dark-purple": "#02060F",
-				"custom-dark-blue": "#040916"
+				"custom-dark-blue": "#040916",
+				"custom-extra-dark-blue": "#02060F",
+				"custom-light-blue": "#111E42"
 			}
 		}
 	},

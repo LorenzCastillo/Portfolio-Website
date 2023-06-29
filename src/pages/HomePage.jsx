@@ -65,7 +65,6 @@ const HomePage = () => {
 										<img src={LinkedinLogo} alt="" width={50} className="self-center"/>
 									</Link>
 									<Link to={"https://github.com/LorenzCastillo"} className="self-center" target="_blank">
-
 										<img src={GithubLogo} alt="" width={50} className="self-center ml-8"/>
 									</Link>
 									<Link className="self-center" target="_blank">

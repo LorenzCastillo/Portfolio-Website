@@ -1,8 +1,7 @@
-// 3rd Party Imports
-import { useEffect, useRef } from "react";
 // Local Imports
 import { useRoutes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
+import AboutMePage from "./pages/AboutMePage";
 
 function App() {
 	const route = useRoutes([
@@ -13,7 +12,11 @@ function App() {
 		{
 			path: "/home",
 			element: <HomePage/>
-		}
+		},
+		{
+			path: "/about",
+			element: <AboutMePage/>
+		},
 	]);
 
 	return route;

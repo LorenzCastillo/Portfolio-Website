@@ -3,33 +3,21 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 const NavigationBar = (props) => {
 
 	const [toggle, setToggle] = useState(true);
 	const [displayStatus, setDisplayStatus] = useState("hidden");
-
-	const handlePopupMenu = () => {
-		if (!toggle) {
-			setDisplayStatus("inline");
-
-		} else {
-			setDisplayStatus("hidden");
-		}
-		setToggle(!toggle);
-	};
-
-	const containerRef = useRef(null);
-
-	const handleWindowChange = () => {
-		if (containerRef.current && displayStatus == "inline") {
-			setDisplayStatus("hidden");
-			setToggle(!toggle);
-		}
-	};
+	const [displayNavigation, setDisplayNavigation] = useState("");
+	const [displayHamburger, setDisplayHamburger] = useState("");
 
 	useEffect(() => {
+		if (!props.isAboutPage) {
+			setDisplayNavigation("lg:flex-none");
+			setDisplayHamburger("lg:hidden");
+		}
+
 		window.addEventListener("resize", handleWindowChange); // Attach event listener on window resize
 
 		return () => {
@@ -37,30 +25,49 @@ const NavigationBar = (props) => {
 		};
 	}, []);
 
+	const handlePopupMenu = () => {
+		if (toggle) {
+			setDisplayStatus("inline");
+		} else {
+			setDisplayStatus("hidden");
+		}
+		setToggle(!toggle);
+	};
+
+	const handleWindowChange = () => {
+		// For some reason this works...
+		if (toggle) {
+			setDisplayStatus("hidden");
+			setToggle(toggle);
+		}
+	};
+
 	return (
 		<>
-			<div ref={containerRef} className="flex flex-row mx-[12%] items-center text-white h-28">
-				<div className="flex flex-1 lg:flex-none">
-					<h1 className="font-rg text-4xl">Lorenz Castillo</h1>
+			<div className="flex flex-row mx-[12%] items-center text-white h-28">
+				<div className={`flex flex-1 ${displayNavigation}`}>
+					<h1 className="font-rg text-3xl">Lorenz Castillo</h1>
 				</div>
 
-				<div className="lg:flex hidden flex-row ml-14 gap-8">
-					<Link to={"/home"}>
-						<p className="font-rg text-xl border-2 px-4 py-2 cursor-pointer">Home</p>
-					</Link>
-					<Link>
-						<p className="font-rg text-xl border-2 px-4 py-2">About</p>
-					</Link>
-					<Link>
-						<p className="font-rg text-xl border-2 px-4 py-2">My Work</p>
-					</Link>
-					<Link>
-						<p className="font-rg text-xl border-2 px-4 py-2">Contact</p>
-					</Link>
-				</div>
+				{!props.isAboutPage &&
+					<div className="lg:flex hidden flex-row ml-14 gap-8">
+						<Link to={"/home"}>
+							<p className="font-rg text-xl border-2 px-4 py-2 cursor-pointer">Home</p>
+						</Link>
+						<Link to={"/about"}>
+							<p className="font-rg text-xl border-2 px-4 py-2">About</p>
+						</Link>
+						<Link>
+							<p className="font-rg text-xl border-2 px-4 py-2">My Work</p>
+						</Link>
+						<Link>
+							<p className="font-rg text-xl border-2 px-4 py-2">Contact</p>
+						</Link>
+					</div>
+				}
 
 				{/* Hamburger Icon */}
-				<div className="lg:hidden flex">
+				<div className={`${displayHamburger} flex`}>
 					<button onClick={() => handlePopupMenu()}>
 						<FontAwesomeIcon icon={faBars} size="2xl" />
 					</button>
@@ -84,7 +91,7 @@ const NavigationBar = (props) => {
 						)}
 					</div>
 					<div>
-						<Link>
+						<Link to={"/about"}>
 							<h1 className="font-rg text-4xl mb-3">About</h1>
 						</Link>
 						{props.isAboutPage && (
