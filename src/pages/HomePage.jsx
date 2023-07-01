@@ -1,6 +1,3 @@
-// 3rd Party Imports
-import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 // Local Imports
 import NavigationBar from "../components/NavigationBar";
 import ProfilePicture from "../components/ProfilePicture";
@@ -8,6 +5,9 @@ import Background from "../images/Background.png";
 import LinkedinLogo from "../images/Linkedin-Logo.png";
 import GithubLogo from "../images/Github-Logo.png";
 import EmailLogo from "../images/Email-Logo.png";
+// 3rd Party Imports
+import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
 	const containerRef = useRef(null);
@@ -29,7 +29,7 @@ const HomePage = () => {
 	return (
 		<>
 			<div ref={containerRef} className="h-screen overflow-y-scroll">
-				<img className="absolute w-screen h-screen object-cover" src={Background} />
+				<img className="absolute w-screen h-screen object-cover z-[-10]" src={Background} />
 
 				{/* Navigation Bar */}
 				<div className="relative">
@@ -44,8 +44,8 @@ const HomePage = () => {
 							<div className="hidden lg:flex h-[32rem] w-1 rounded-full bg-custom-red" />
 							{/* Flex column of the text content */}
 							<div className="flex flex-col lg:ml-10 flex-1 lg:mt-12">
-								<h1 className="font-rg text-[5rem] text-white leading-none">Hello</h1>
-								<h1 className="font-rg text-[5rem] text-white leading-none">
+								<h1 className="font-alte-bold text-[5rem] text-white leading-none">Hello</h1>
+								<h1 className="font-alte-bold text-[5rem] text-white leading-none">
 									<span>I{"'"}m Lorenz</span>
 									<span className="text-custom-red"> Castillo</span>
 								</h1>
@@ -57,7 +57,7 @@ const HomePage = () => {
 									<div className="h-1 w-2 rounded-full bg-custom-red" />
 								</div>
 
-								<h1 className="font-rg text-4xl text-white mt-6 leading-none">I am into Software / Web Development</h1>
+								<h1 className="font-alte-bold text-4xl text-white mt-6 leading-none">I am into Software / Web Development</h1>
 
 								{/* MOBILE VIEW: My Portrait Photo */}
 								<div className="lg:hidden flex flex-row mt-10">

@@ -10,7 +10,9 @@ export default {
 			"condensedrg": ["Coolvetica_Condensed_rg", "sans-serif"],
 			"crammedrg": ["Coolvetica_Crammed_rg", "sans-serif"],
 			"rgit": ["Coolvetica_rg_it", "sans-serif"],
-			"rg": ["Coolvetica_rg", "sans-serif"]
+			"rg": ["Coolvetica_rg", "sans-serif"],
+			"alte-bold": ["AlteHaasGroteskBold", "sans-serif"],
+			"alte-rg": ["AlteHaasGroteskRegular", "sans-serif"]
 		},
 		extend: {
 			colors: {

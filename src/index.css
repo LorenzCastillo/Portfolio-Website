@@ -27,4 +27,14 @@
     font-family: "Coolvetica_rg";
     src: url("/src/fonts/Coolvetica_rg.otf") format("opentype");
   }
+
+  @font-face {
+    font-family: "AlteHaasGroteskBold";
+    src: url("/src/fonts/AlteHaasGroteskBold.ttf") format("truetype");
+  }
+  
+  @font-face {
+    font-family: "AlteHaasGroteskRegular";
+    src: url("/src/fonts/AlteHaasGroteskRegular.ttf") format("truetype");
+  }
 }

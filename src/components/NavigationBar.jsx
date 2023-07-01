@@ -46,22 +46,22 @@ const NavigationBar = (props) => {
 		<>
 			<div className="flex flex-row mx-[12%] items-center text-white h-28">
 				<div className={`flex flex-1 ${displayNavigation}`}>
-					<h1 className="font-rg text-3xl">Lorenz Castillo</h1>
+					<h1 className="font-alte-bold text-3xl">Lorenz Castillo</h1>
 				</div>
 
 				{!props.isAboutPage &&
-					<div className="lg:flex hidden flex-row ml-14 gap-8">
+					<div className="lg:flex hidden flex-row ml-16 gap-8">
 						<Link to={"/home"}>
-							<p className="font-rg text-xl border-2 px-4 py-2 cursor-pointer">Home</p>
+							<p className="font-alte-bold text-lg border-2 px-4 py-2 cursor-pointer">Home</p>
 						</Link>
 						<Link to={"/about"}>
-							<p className="font-rg text-xl border-2 px-4 py-2">About</p>
+							<p className="font-alte-bold text-lg border-2 px-4 py-2">About</p>
 						</Link>
-						<Link>
-							<p className="font-rg text-xl border-2 px-4 py-2">My Work</p>
+						<Link to={"/projects"}>
+							<p className="font-alte-bold text-lg border-2 px-4 py-2">My Work</p>
 						</Link>
-						<Link>
-							<p className="font-rg text-xl border-2 px-4 py-2">Contact</p>
+						<Link to={"/contact"}>
+							<p className="font-alte-bold text-lg border-2 px-4 py-2">Contact</p>
 						</Link>
 					</div>
 				}
@@ -84,7 +84,7 @@ const NavigationBar = (props) => {
 				<div className="flex flex-col items-start m-8 gap-10">
 					<div>
 						<Link to={"/home"}>
-							<h1 className="font-rg text-4xl mb-3">Home</h1>
+							<h1 className="font-alte-bold text-4xl mb-3">Home</h1>
 						</Link>
 						{props.isHomePage && (
 							<div className="h-1.5 w-56 bg-custom-red" />
@@ -92,23 +92,23 @@ const NavigationBar = (props) => {
 					</div>
 					<div>
 						<Link to={"/about"}>
-							<h1 className="font-rg text-4xl mb-3">About</h1>
+							<h1 className="font-alte-bold text-4xl mb-3">About</h1>
 						</Link>
 						{props.isAboutPage && (
 							<div className="h-1.5 w-56 bg-custom-red" />
 						)}
 					</div>
 					<div>
-						<Link>
-							<h1 className="font-rg text-4xl mb-3">My Work</h1>
+						<Link to={"/projects"}>
+							<h1 className="font-alte-bold text-4xl mb-3">My Work</h1>
 						</Link>
-						{props.isMyworkpage && (
+						{props.isProjectsPage && (
 							<div className="h-1.5 w-56 bg-custom-red" />
 						)}
 					</div>
 					<div>
-						<Link>
-							<h1 className="font-rg text-4xl mb-3">Contact</h1>
+						<Link to={"/contact"}>
+							<h1 className="font-alte-bold text-4xl mb-3">Contact</h1>
 						</Link>
 						{props.isContactPage && (
 							<div className="h-1.5 w-56 bg-custom-red" />
