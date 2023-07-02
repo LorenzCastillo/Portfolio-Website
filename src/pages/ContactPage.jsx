@@ -26,7 +26,7 @@ const ContactPage = () => {
 	return (
 		<>
 			<div ref={containerRef} className="h-screen overflow-y-scroll">
-				<img className="absolute w-screen h-screen bottom-[36rem] z-[-10]" src={Background} />
+				<img className="absolute w-screen h-screen object-cover bottom-[36rem] z-[-10]" src={Background} />
 
 				{/* Navigation Bar */}
 				<div className="relative">
@@ -34,16 +34,16 @@ const ContactPage = () => {
 				</div>
 
 				<div className="relative">
-					<div className="flex flex-col mt-10 w-full items-center">
-						<div className="flex bg-red w-[48rem]">
+					<div className="flex flex-col mt-10 w-full items-center max-md:w-screen max-md:px-[17%]">
+						<div className="flex bg-red md:w-[48rem]">
 							<h1 className="font-alte-bold text-6xl justify-center">
 								<span className="text-white">Contact</span>
 								<span className="text-custom-red"> Me</span>
 							</h1>
 						</div>
 
-						<div className="flex-col justify-center mt-10">
-							<div className="grid grid-cols-2 gap-4 w-[48rem]">
+						<div className="flex-col justify-center mt-10 max-md:w-screen max-md:px-[17%]">
+							<div className="grid md:grid-cols-2 grid-cols-1 gap-4 md:w-[48rem]">
 								<div className="flex flex-row items-center">
 									<FontAwesomeIcon icon={faUser} className="absolute pointer-events-none h-5 w-5 p-2 ml-2" style={{ color: "#545454" }} />
 									<input className="w-full rounded-lg py-2 pl-14 pr-3" id="name" type="text" placeholder="Name"></input>

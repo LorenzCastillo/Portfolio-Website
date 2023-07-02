@@ -7,8 +7,6 @@ import Project2 from "../images/Project2.png";
 // 3rd Party Imports
 import { useRef, useEffect } from "react";
 
-
-
 const MyProjectsPage = () => {
 	const containerRef = useRef(null);
 
@@ -29,7 +27,7 @@ const MyProjectsPage = () => {
 	return (
 		<>
 			<div ref={containerRef} className="h-screen overflow-y-scroll">
-				<img className="absolute w-screen h-screen bottom-[36rem] z-[-10]" src={Background} />
+				<img className="absolute w-screen h-screen object-cover bottom-[36rem] z-[-10]" src={Background} />
 
 				{/* Navigation Bar */}
 				<div className="relative">
@@ -39,7 +37,7 @@ const MyProjectsPage = () => {
 				<div className="relative">
 					<div className="flex flex-col mt-10">
 						<div className="flex justify-center">
-							<h1 className="font-alte-bold text-6xl">
+							<h1 className="font-alte-bold md:text-6xl text-5xl">
 								<span className="text-white">Projects</span>
 								<span className="text-custom-red"> Made</span>
 							</h1>

@@ -75,7 +75,7 @@ const NavigationBar = (props) => {
 				</div>
 			</div>
 
-			<div className={`${displayStatus} fixed z-10 w-80 h-screen bg-custom-dark-blue top-0 right-0 text-white`}>
+			<div className={`${displayStatus} fixed w-80 h-screen bg-custom-dark-blue top-0 right-0 text-white z-50 `}>
 				<div className="flex flex-col items-end m-8">
 					<button onClick={() => handlePopupMenu()}>
 						<FontAwesomeIcon icon={faXmark} size="2xl"/>
