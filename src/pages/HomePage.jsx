@@ -72,13 +72,13 @@ const HomePage = () => {
 									</Link>
 								</div>
 
-								{/* My Portrait Photo */}
+								{/* MOBILE VIEW: My Portrait Photo */}
 								<div className="lg:hidden flex flex-col mt-12 items-center">
 									<ProfilePicture />
 								</div>
 							</div>
 
-							{/* MOBILE VIEW: My Portrait Photo */}
+							{/* My Portrait Photo */}
 							<div className="lg:flex hidden flex-col">
 								<ProfilePicture />
 							</div>

@@ -11,6 +11,7 @@ const NavigationBar = (props) => {
 	const [displayStatus, setDisplayStatus] = useState("hidden");
 	const [displayNavigation, setDisplayNavigation] = useState("");
 	const [displayHamburger, setDisplayHamburger] = useState("");
+	const [animateState, setAnimateState] = useState("");
 
 	useEffect(() => {
 		if (!props.isAboutPage) {
@@ -28,8 +29,12 @@ const NavigationBar = (props) => {
 	const handlePopupMenu = () => {
 		if (toggle) {
 			setDisplayStatus("inline");
+			setAnimateState("animate-popUpMenuIn");
 		} else {
-			setDisplayStatus("hidden");
+			setAnimateState("animate-popUpMenuOut");
+			setTimeout(() => {
+				setDisplayStatus("hidden");
+			}, "500");
 		}
 		setToggle(!toggle);
 	};
@@ -71,49 +76,80 @@ const NavigationBar = (props) => {
 					<button onClick={() => handlePopupMenu()}>
 						<FontAwesomeIcon icon={faBars} size="2xl" />
 					</button>
-
 				</div>
 			</div>
 
-			<div className={`${displayStatus} fixed w-80 h-screen bg-custom-dark-blue top-0 right-0 text-white z-50 `}>
+			<div className={`${displayStatus} fixed w-80 h-screen bg-custom-dark-blue top-0 right-0 text-white z-50 ${animateState}`}>
 				<div className="flex flex-col items-end m-8">
 					<button onClick={() => handlePopupMenu()}>
 						<FontAwesomeIcon icon={faXmark} size="2xl"/>
 					</button>
 				</div>
 				<div className="flex flex-col items-start m-8 gap-10">
-					<div>
-						<Link to={"/home"}>
-							<h1 className="font-alte-bold text-4xl mb-3">Home</h1>
-						</Link>
-						{props.isHomePage && (
-							<div className="h-1.5 w-56 bg-custom-red" />
-						)}
-					</div>
-					<div>
-						<Link to={"/about"}>
-							<h1 className="font-alte-bold text-4xl mb-3">About</h1>
-						</Link>
-						{props.isAboutPage && (
-							<div className="h-1.5 w-56 bg-custom-red" />
-						)}
-					</div>
-					<div>
-						<Link to={"/projects"}>
-							<h1 className="font-alte-bold text-4xl mb-3">My Work</h1>
-						</Link>
-						{props.isProjectsPage && (
-							<div className="h-1.5 w-56 bg-custom-red" />
-						)}
-					</div>
-					<div>
-						<Link to={"/contact"}>
-							<h1 className="font-alte-bold text-4xl mb-3">Contact</h1>
-						</Link>
-						{props.isContactPage && (
-							<div className="h-1.5 w-56 bg-custom-red" />
-						)}
-					</div>
+					{props.isHomePage ? (
+						<div>
+							<Link to={"/home"}>
+								<h1 className="font-alte-bold text-4xl mb-3">Home</h1>
+								<div className="h-1.5 w-56 bg-custom-red" />
+							</Link>
+						</div>
+					) : (
+						<div className="hover:animate-menuItemHover animate-menuItemHoverOut hover:w-56 group">
+							<Link to={"/home"}>
+								<h1 className="font-alte-bold text-4xl mb-3 w-40">Home</h1>
+								<div className="h-1.5 bg-custom-red group-hover:opacity-100 opacity-0" />
+							</Link>
+						</div>
+					)}
+
+					{props.isAboutPage ? (
+						<div>
+							<Link to={"/about"}>
+								<h1 className="font-alte-bold text-4xl mb-3">About</h1>
+								<div className="h-1.5 w-56 bg-custom-red" />
+							</Link>
+						</div>
+					) : (
+						<div className="hover:animate-menuItemHover hover:w-56 group">
+							<Link to={"/about"}>
+								<h1 className="font-alte-bold text-4xl mb-3 w-40">About</h1>
+								<div className="h-1.5 bg-custom-red group-hover:opacity-100 opacity-0" />
+							</Link>
+						</div>
+					)}
+
+					{props.isProjectsPage ? (
+						<div>
+							<Link to={"/projects"}>
+								<h1 className="font-alte-bold text-4xl mb-3">My Work</h1>
+								<div className="h-1.5 w-56 bg-custom-red" />
+							</Link>
+						</div>
+					) : (
+						<div className="hover:animate-menuItemHover hover:w-56 group">
+							<Link to={"/projects"}>
+								<h1 className="font-alte-bold text-4xl mb-3 w-40">My Work</h1>
+								<div className="h-1.5 bg-custom-red group-hover:opacity-100 opacity-0" />
+							</Link>
+						</div>
+					)}
+
+					{props.isContactPage ? (
+						<div>
+							<Link to={"/contact"}>
+								<h1 className="font-alte-bold text-4xl mb-3">Contact</h1>
+								<div className="h-1.5 w-56 bg-custom-red" />
+							</Link>
+						</div>
+					) : (
+						<div className="hover:animate-menuItemHover hover:w-56 group">
+							<Link to={"/contact"}>
+								<h1 className="font-alte-bold text-4xl mb-3 w-40">Contact</h1>
+								<div className="h-1.5 bg-custom-red group-hover:opacity-100 opacity-0" />
+							</Link>
+						</div>
+					)}
+
 				</div>
 			</div>
 		</>
