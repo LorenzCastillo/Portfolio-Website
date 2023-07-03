@@ -23,10 +23,9 @@ export default {
 				"custom-light-blue": "#111E42"
 			},
 			animation: {
-				popUpMenuIn: "popUpMenuIn 0.5s ease-in-out",
-				popUpMenuOut: "popUpMenuOut 0.5s ease-in-out",
-				menuItemHover: "menuItemHover 0.5s ease-in-out",
-				menuItemHoverOut: "menuItemHoverOut 0.5s ease-in-out",
+				popUpMenuIn: "popUpMenuIn 0.3s ease-out",
+				popUpMenuOut: "popUpMenuOut 0.3s ease-in",
+				menuItemHover: "menuItemHover 0.3s ease-out",
 				fadeIn: "fadeIn 0.5s ease-in",
 				fadeOut: "fadeOut 0.5s ease-out",
 				widthExpandXL: "widthExpandXL 0.5s ease-in-out",

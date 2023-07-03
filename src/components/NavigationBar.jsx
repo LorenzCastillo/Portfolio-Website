@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 // 3rd Party Imports
 import { Link } from "react-router-dom";
@@ -34,7 +35,7 @@ const NavigationBar = (props) => {
 			setAnimateState("animate-popUpMenuOut");
 			setTimeout(() => {
 				setDisplayStatus("hidden");
-			}, "500");
+			}, "300");
 		}
 		setToggle(!toggle);
 	};
