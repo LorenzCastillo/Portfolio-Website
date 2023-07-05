@@ -1,7 +1,13 @@
 // Local Imports
 import NavigationBar from "../components/NavigationBar";
 import ProfilePicture from "../components/ProfilePicture";
-import Background from "../images/Background.png";
+import FirstLayer from "../images/1st-Layer.png";
+import SecondLayer from "../images/2nd-Layer.png";
+import ThirdLayer from "../images/3rd-Layer.png";
+import FourthLayer from "../images/4th-Layer.png";
+import FifthLayer from "../images/5th-Layer.png";
+import SunAndMountain from "../images/SunAndMountain.png";
+import Background from "../images/Gradient-Lighting.png";
 import LinkedinLogo from "../images/Linkedin-Logo.png";
 import GithubLogo from "../images/Github-Logo.png";
 import EmailLogo from "../images/Email-Logo.png";
@@ -29,7 +35,21 @@ const HomePage = () => {
 	return (
 		<>
 			<div ref={containerRef} className="h-screen overflow-y-scroll">
-				<img className="absolute w-screen h-screen object-cover z-[-10]" src={Background} />
+				{/* Background */}
+				<div className="relative">
+					<img className="fixed w-screen object-cover z-[-50]" src={Background} />
+					<img className="fixed w-[80rem] object-cover z-[-50] translate-y-20" src={SunAndMountain} />
+					<img className="fixed bottom-0 w-full object-cover z-[-50] translate-y-8" src={FifthLayer}/>
+					<img className="fixed bottom-0 w-screen object-cover z-[-50] translate-y-8" src={FourthLayer} />
+					<img className="fixed bottom-0 w-screen object-cover z-[-50] translate-y-8" src={ThirdLayer} />
+					<img className="fixed bottom-0 w-screen object-cover z-[-50] translate-y-8" src={SecondLayer} />
+					<img className="fixed bottom-0 w-screen object-cover z-[-50] translate-y-8" src={FirstLayer} />
+				</div>
+
+				{/* <div className="relative top-0 left-0 w-full z-[-10] object-cover">
+					<img className="fixed" src={Background} />
+				</div> */}
+
 
 				{/* Navigation Bar */}
 				<div className="relative">

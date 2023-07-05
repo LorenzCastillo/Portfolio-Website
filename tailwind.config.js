@@ -21,7 +21,11 @@ export default {
 				"custom-dark-purple": "#02060F",
 				"custom-dark-blue": "#040916",
 				"custom-extra-dark-blue": "#02060F",
-				"custom-light-blue": "#111E42"
+				"custom-light-blue": "#111E42",
+				"custom-background": "#0E2258"
+			},
+			backgroundImage: {
+				"gradient-radial": "radial-gradient(var(--gradient-color-stops))"
 			},
 			animation: {
 				popUpMenuIn: "popUpMenuIn 0.3s ease-out",
