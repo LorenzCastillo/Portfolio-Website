@@ -3,8 +3,9 @@ import Background from "../images/Background.png";
 import NavigationBar from "../components/NavigationBar";
 import SkillCard from "../components/SkillCard";
 import ProfilePicture from "../components/ProfilePicture";
+import AppContext from "../AppContext";
 // 3rd Party Imports
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
@@ -19,6 +20,8 @@ const AboutMePage = () => {
 	const [widthAnimation, setWidthAnimation] = useState("");
 	const [widthButtonAnimation, setWidthButtonAnimation] = useState("");
 	const [windowSize, setWindowSize] = useState(window.innerWidth);
+	const { animateCState, opacityCState } = useContext(AppContext);
+
 
 	const handleScrollChange = () => {
 		if (containerRef.current) {
@@ -126,12 +129,12 @@ const AboutMePage = () => {
 			<div ref={containerRef} className="h-screen overflow-y-scroll overflow-x-hidden">
 				<img className="absolute w-screen h-screen object-cover" src={Background} />
 				{/* About Me Background */}
-				<div className={`${aboutPageVisibility} ${widthAnimation} absolute h-screen lg:w-[55rem] sm:w-[40rem] w-screen bg-custom-extra-dark-blue transition-all ease-in-out duration-500`}/>
+				<div className={`${aboutPageVisibility} ${widthAnimation} ${animateCState} ${opacityCState} absolute h-screen lg:w-[55rem] sm:w-[40rem] w-screen bg-custom-extra-dark-blue transition-all ease-in-out duration-500`}/>
 				{/* Who I Am Background */}
-				<div className={`${whoIAmVisibility} ${widthAnimation} absolute h-screen xl:w-[75rem] md:w-[40rem] w-screen bg-custom-extra-dark-blue transition-all ease-in-out duration-500`}/>
+				<div className={`${whoIAmVisibility} ${widthAnimation} ${animateCState} ${opacityCState} absolute h-screen xl:w-[75rem] md:w-[40rem] w-screen bg-custom-extra-dark-blue transition-all ease-in-out duration-500`}/>
 
 				{/* About Me Button */}
-				<div className={`${aboutPageVisibility} absolute max-md:hidden`}>
+				<div className={`${aboutPageVisibility} ${animateCState} ${opacityCState} absolute max-md:hidden`}>
 					<div className={`${widthButtonAnimation} flex h-screen lg:w-[60rem] w-[45rem] items-center justify-end transition-all ease-in-out duration-500`}>
 						<button onClick={handleButtonClick} className="z-10">
 							<div className="flex h-40 w-40 bg-custom-extra-dark-blue rounded-full items-center justify-end pr-7">
@@ -142,7 +145,7 @@ const AboutMePage = () => {
 				</div>
 
 				{/* Who I Am Button */}
-				<div className={`${whoIAmVisibility} absolute max-md:hidden`}>
+				<div className={`${whoIAmVisibility} ${animateCState} ${opacityCState} absolute max-md:hidden`}>
 					<div className={`${widthButtonAnimation} flex h-screen xl:w-[80rem] sm:w-[45rem] items-center justify-end transition-all ease-in-out duration-500`}>
 						<button onClick={handleButtonClick} className="z-10">
 							<div className="flex h-40 w-40 bg-custom-extra-dark-blue rounded-full items-center justify-end pr-7">
@@ -158,7 +161,7 @@ const AboutMePage = () => {
 				</div>
 
 				{/* ABOUT ME */}
-				<div className={`${aboutPageVisibility} relative mx-[7%]`}>
+				<div className={`${aboutPageVisibility} ${animateCState} ${opacityCState} relative mx-[7%]`}>
 					<div className="flex flex-row">
 						<div className="flex flex-col mt-8 mr-[5%]">
 							<div className="hidden sm:flex h-16 w-1 rounded-full bg-custom-red mb-10"/>
@@ -212,7 +215,7 @@ const AboutMePage = () => {
 				</div>
 
 				{/* WHO I AM */}
-				<div className={`${whoIAmVisibility} relative mx-[7%]`}>
+				<div className={`${whoIAmVisibility} ${animateCState} ${opacityCState} relative mx-[7%]`}>
 					<div className="flex flex-row">
 						<div className="flex flex-col mt-8 mr-[5%]">
 							<div className="hidden md:flex h-16 w-1 rounded-full bg-custom-red mb-10"/>

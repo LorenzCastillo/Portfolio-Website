@@ -45,6 +45,8 @@ export default {
 				widthShrinkMD: "widthShrinkMD 0.5s ease-in-out",
 				widthExpandSM: "widthExpandSM 0.5s ease-in-out",
 				widthShrinkSM: "widthShrinkSM 0.5s ease-in-out",
+				fadeInSlide: "fadeInSlide 0.7s ease-in-out",
+				fadeOutSlide: "fadeOutSlide 0.7s ease-in-out",
 			},
 			keyframes: {
 				popUpMenuIn: {
@@ -182,6 +184,26 @@ export default {
 					"100%": {
 						width: "40rem"
 					}
+				},
+				fadeInSlide: {
+					"0%": {
+						transform: "translate(50px, 0px)",
+						opacity: "0%"
+					},
+					"100%": {
+						transform: "translate(0px, 0px)",
+						opacity: "100%"
+					},
+				},
+				fadeOutSlide: {
+					"0%": {
+						transform: "translate(0px, 0px)",
+						opacity: "100%"
+					},
+					"100%": {
+						transform: "translate(50px, 0px)",
+						opacity: "0%"
+					},
 				}
 			}
 		}

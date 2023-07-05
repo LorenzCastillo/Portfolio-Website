@@ -3,30 +3,61 @@ import HomePage from "./pages/HomePage";
 import AboutMePage from "./pages/AboutMePage";
 import MyProjectsPage from "./pages/MyProjectsPage";
 import ContactPage from "./pages/ContactPage";
+import AppContext from "./AppContext";
 // 3rd Party Imports
 import { useRoutes } from "react-router-dom";
+import { useState } from "react";
 
 function App() {
+	const [animateCState, setAnimateCState] = useState("");
+	const [opacityCState, setOpacityCState] = useState("");
+
 	const route = useRoutes([
 		{
 			path: "/",
-			element: <HomePage/>
+			element:
+			<AppContext.Provider value={{
+				animateCState, setAnimateCState, opacityCState, setOpacityCState
+			}}>
+				<HomePage/>
+			</AppContext.Provider>
 		},
 		{
 			path: "/home",
-			element: <HomePage/>
+			element:
+			<AppContext.Provider value={{
+				animateCState, setAnimateCState, opacityCState, setOpacityCState
+			}}>
+				<HomePage/>
+			</AppContext.Provider>
 		},
 		{
 			path: "/about",
-			element: <AboutMePage/>
+			element:
+			<AppContext.Provider value={{
+				animateCState, setAnimateCState, opacityCState, setOpacityCState
+			}}>
+				<AboutMePage/>
+			</AppContext.Provider>
+
 		},
 		{
 			path: "/projects",
-			element: <MyProjectsPage/>
+			element:
+			<AppContext.Provider value={{
+				animateCState, setAnimateCState, opacityCState, setOpacityCState
+			}}>
+				<MyProjectsPage/>
+			</AppContext.Provider>
 		},
 		{
 			path: "/contact",
-			element: <ContactPage/>
+			element:
+			<AppContext.Provider value={{
+				animateCState, setAnimateCState, opacityCState, setOpacityCState
+			}}>
+				<ContactPage/>
+			</AppContext.Provider>
 		},
 	]);
 

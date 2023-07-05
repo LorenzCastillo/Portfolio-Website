@@ -1,22 +1,19 @@
 // Local Imports
 import NavigationBar from "../components/NavigationBar";
 import ProfilePicture from "../components/ProfilePicture";
-import FirstLayer from "../images/1st-Layer.png";
-import SecondLayer from "../images/2nd-Layer.png";
-import ThirdLayer from "../images/3rd-Layer.png";
-import FourthLayer from "../images/4th-Layer.png";
-import FifthLayer from "../images/5th-Layer.png";
-import SunAndMountain from "../images/SunAndMountain.png";
-import Background from "../images/Gradient-Lighting.png";
+import Background from "../images/Background.png";
 import LinkedinLogo from "../images/Linkedin-Logo.png";
 import GithubLogo from "../images/Github-Logo.png";
 import EmailLogo from "../images/Email-Logo.png";
+import AppContext from "../AppContext";
+
 // 3rd Party Imports
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
 	const containerRef = useRef(null);
+	const { animateCState, opacityCState } = useContext(AppContext);
 
 	const handleScrollChange = () => {
 		if (containerRef.current) {
@@ -34,36 +31,23 @@ const HomePage = () => {
 
 	return (
 		<>
-			<div ref={containerRef} className="h-screen overflow-y-scroll">
+			<div ref={containerRef} className="h-screen">
 				{/* Background */}
-				<div className="relative">
-					<img className="fixed w-screen object-cover z-[-50]" src={Background} />
-					<img className="fixed w-[80rem] object-cover z-[-50] translate-y-20" src={SunAndMountain} />
-					<img className="fixed bottom-0 w-full object-cover z-[-50] translate-y-8" src={FifthLayer}/>
-					<img className="fixed bottom-0 w-screen object-cover z-[-50] translate-y-8" src={FourthLayer} />
-					<img className="fixed bottom-0 w-screen object-cover z-[-50] translate-y-8" src={ThirdLayer} />
-					<img className="fixed bottom-0 w-screen object-cover z-[-50] translate-y-8" src={SecondLayer} />
-					<img className="fixed bottom-0 w-screen object-cover z-[-50] translate-y-8" src={FirstLayer} />
-				</div>
-
-				{/* <div className="relative top-0 left-0 w-full z-[-10] object-cover">
-					<img className="fixed" src={Background} />
-				</div> */}
-
+				<img className="absolute w-screen h-screen object-cover z-[-10]" src={Background} />
 
 				{/* Navigation Bar */}
 				<div className="relative">
 					<NavigationBar isHomePage={true}/>
 				</div>
 
-				<div className="relative mx-[12%] h-[85%] top-[5%]">
-					<div className="flex flex-col gap-10">
+				<div className={`absolute mx-[12%] h-[85%] ${animateCState} ${opacityCState}`}>
+					<div className="flex flex-col gap-10 mt-8">
 						{/* Flex row containing first line deco, text and the image */}
-						<div className="flex flex-row flex-1 items-center">
+						<div className="flex flex-row items-center">
 							{/* Line decoration 1 (Disappears in mobile view)*/}
 							<div className="hidden lg:flex h-[32rem] w-1 rounded-full bg-custom-red" />
 							{/* Flex column of the text content */}
-							<div className="flex flex-col lg:ml-10 flex-1 lg:mt-12">
+							<div className="flex flex-col lg:ml-10 lg:mt-12 lg:mr-20">
 								<h1 className="font-alte-bold text-[5rem] text-white leading-none">Hello</h1>
 								<h1 className="font-alte-bold text-[5rem] text-white leading-none">
 									<span>I{"'"}m Lorenz</span>

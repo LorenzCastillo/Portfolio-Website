@@ -1,21 +1,64 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
+// Local Imports
+import AppContext from "../AppContext";
 // 3rd Party Imports
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
-const NavigationBar = (props) => {
+const NavigationBar = () => {
 
 	const [toggle, setToggle] = useState(true);
 	const [displayStatus, setDisplayStatus] = useState("hidden");
+	const [animateState, setAnimateState] = useState("");
 	const [displayNavigation, setDisplayNavigation] = useState("");
 	const [displayHamburger, setDisplayHamburger] = useState("");
-	const [animateState, setAnimateState] = useState("");
+	const { animateCState, setAnimateCState, opacityCState, setOpacityCState } = useContext(AppContext);
+	const location = useLocation();
+	const navigate = useNavigate();
+
+	const handleHomePageTransition = () => {
+		if (location.pathname == "/about") {
+			setAnimateCState("animate-fadeOutSlide");
+			setOpacityCState("opacity-0");
+
+			if (!toggle) {
+				setAnimateState("animate-fadeOutSlide");
+			}
+
+			setTimeout(() => {
+				setAnimateCState("");
+				navigate("/home");
+
+				setTimeout(() => {
+					setAnimateCState("animate-fadeInSlide");
+					setOpacityCState("opacity-100");
+				}, "1000");
+			}, "1000");
+		}
+		// } else if (location.pathname == "/projects") {
+
+		// } else if (location.pathname == "/contact") {
+
+		// }
+	};
+
+	const handleAboutPageTransition = () => {
+
+	};
+
+	const handleProjectsPageTransition = () => {
+
+	};
+
+	const handleContactPageTransition = () => {
+
+	};
 
 	useEffect(() => {
-		if (!props.isAboutPage) {
+		if (location.pathname != "/about") {
 			setDisplayNavigation("lg:flex-none");
 			setDisplayHamburger("lg:hidden");
 		}
@@ -55,11 +98,11 @@ const NavigationBar = (props) => {
 					<h1 className="font-alte-bold text-3xl">Lorenz Castillo</h1>
 				</div>
 
-				{!props.isAboutPage &&
+				{location.pathname != "/about" &&
 					<div className="lg:flex hidden flex-row ml-16 gap-8">
-						<Link to={"/home"}>
+						<button onClick={handleHomePageTransition}>
 							<p className="font-alte-bold text-lg border-2 px-4 py-2 cursor-pointer">Home</p>
-						</Link>
+						</button>
 						<Link to={"/about"}>
 							<p className="font-alte-bold text-lg border-2 px-4 py-2">About</p>
 						</Link>
@@ -80,30 +123,28 @@ const NavigationBar = (props) => {
 				</div>
 			</div>
 
-			<div className={`${displayStatus} fixed w-80 h-screen bg-custom-dark-blue top-0 right-0 text-white z-50 ${animateState}`}>
+			<div className={`${displayStatus} ${animateState} ${opacityCState} fixed w-80 h-screen bg-custom-dark-blue top-0 right-0 text-white z-50`}>
 				<div className="flex flex-col items-end m-8">
 					<button onClick={() => handlePopupMenu()}>
 						<FontAwesomeIcon icon={faXmark} size="2xl"/>
 					</button>
 				</div>
 				<div className="flex flex-col items-start m-8 gap-10">
-					{props.isHomePage ? (
+					{location.pathname == "/" || location.pathname == "/home" ? (
 						<div>
-							<Link to={"/home"}>
-								<h1 className="font-alte-bold text-4xl mb-3">Home</h1>
+							<button onClick={handleHomePageTransition}>
+								<h1 className="flex items-start font-alte-bold text-4xl mb-3">Home</h1>
 								<div className="h-1.5 w-56 bg-custom-red" />
-							</Link>
+							</button>
 						</div>
 					) : (
-						<div className="hover:animate-menuItemHover animate-menuItemHoverOut hover:w-56 group">
-							<Link to={"/home"}>
-								<h1 className="font-alte-bold text-4xl mb-3 w-40">Home</h1>
-								<div className="h-1.5 bg-custom-red group-hover:opacity-100 opacity-0" />
-							</Link>
-						</div>
+						<button onClick={handleHomePageTransition} className="hover:animate-menuItemHover hover:w-56 group">
+							<h1 className="flex items-start font-alte-bold text-4xl mb-3">Home</h1>
+							<div className="h-1.5 bg-custom-red group-hover:opacity-100 opacity-0" />
+						</button>
 					)}
 
-					{props.isAboutPage ? (
+					{location.pathname == "/about" ? (
 						<div>
 							<Link to={"/about"}>
 								<h1 className="font-alte-bold text-4xl mb-3">About</h1>
@@ -119,7 +160,7 @@ const NavigationBar = (props) => {
 						</div>
 					)}
 
-					{props.isProjectsPage ? (
+					{location.pathname == "/projects" ? (
 						<div>
 							<Link to={"/projects"}>
 								<h1 className="font-alte-bold text-4xl mb-3">My Work</h1>
@@ -135,7 +176,7 @@ const NavigationBar = (props) => {
 						</div>
 					)}
 
-					{props.isContactPage ? (
+					{location.pathname == "/contact" ? (
 						<div>
 							<Link to={"/contact"}>
 								<h1 className="font-alte-bold text-4xl mb-3">Contact</h1>
@@ -150,7 +191,6 @@ const NavigationBar = (props) => {
 							</Link>
 						</div>
 					)}
-
 				</div>
 			</div>
 		</>
