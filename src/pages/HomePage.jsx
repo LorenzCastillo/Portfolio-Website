@@ -5,12 +5,15 @@ import Background from "../images/Background.png";
 import LinkedinLogo from "../images/LinkedIn-Logo.png";
 import GithubLogo from "../images/Github-Logo.png";
 import EmailLogo from "../images/Email-Logo.png";
+import AppContext from "../AppContext";
+
 // 3rd Party Imports
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
 	const containerRef = useRef(null);
+	const { animateCState1, animateCState2, opacityCState } = useContext(AppContext);
 
 	const handleScrollChange = () => {
 		if (containerRef.current) {
@@ -28,22 +31,23 @@ const HomePage = () => {
 
 	return (
 		<>
-			<div ref={containerRef} className="h-screen overflow-y-scroll">
-				<img className="absolute w-screen h-screen object-cover z-[-10]" src={Background} />
+			<div ref={containerRef} className="h-screen overflow-x-hidden">
+				{/* Background */}
+				<img className={`${animateCState2} absolute w-screen h-screen object-cover z-[-10]`} src={Background} />
 
 				{/* Navigation Bar */}
 				<div className="relative">
 					<NavigationBar isHomePage={true}/>
 				</div>
 
-				<div className="relative mx-[12%] h-[85%] top-[5%]">
-					<div className="flex flex-col gap-10">
+				<div className={`${animateCState1} ${opacityCState} absolute mx-[12%] h-[85%]`}>
+					<div className="flex flex-col gap-10 mt-8">
 						{/* Flex row containing first line deco, text and the image */}
-						<div className="flex flex-row flex-1 items-center">
+						<div className="flex flex-row items-center">
 							{/* Line decoration 1 (Disappears in mobile view)*/}
 							<div className="hidden lg:flex h-[32rem] w-1 rounded-full bg-custom-red" />
 							{/* Flex column of the text content */}
-							<div className="flex flex-col lg:ml-10 flex-1 lg:mt-12">
+							<div className="flex flex-col lg:ml-10 lg:mt-12 lg:mr-32">
 								<h1 className="font-alte-bold text-[5rem] text-white leading-none">Hello</h1>
 								<h1 className="font-alte-bold text-[5rem] text-white leading-none">
 									<span>I{"'"}m Lorenz</span>
@@ -62,14 +66,14 @@ const HomePage = () => {
 								{/* MOBILE VIEW: My Portrait Photo */}
 								<div className="lg:hidden flex flex-row mt-10">
 									<Link to={"https://www.linkedin.com/in/lorenzcastillo/"} className="self-center" target="_blank">
-										<img src={LinkedinLogo} alt="" width={50} className="self-center"/>
+										<img src={LinkedinLogo} alt="" width={50}/>
 									</Link>
 									<Link to={"https://github.com/LorenzCastillo"} className="self-center" target="_blank">
-										<img src={GithubLogo} alt="" width={50} className="self-center ml-8"/>
+										<img src={GithubLogo} alt="" width={50} className="ml-8"/>
 									</Link>
-									<Link className="self-center" target="_blank">
-										<img src={EmailLogo} alt="" width={50} className="self-center ml-8"/>
-									</Link>
+									<a href="mailto:lorenzcastillo5524@gmail.com" className="self-center">
+										<img src={EmailLogo} alt="" width={50} className="ml-8"/>
+									</a>
 								</div>
 
 								{/* MOBILE VIEW: My Portrait Photo */}
@@ -95,9 +99,9 @@ const HomePage = () => {
 							<Link to={"https://github.com/LorenzCastillo"} className="self-center" target="_blank">
 								<img src={GithubLogo} alt="" width={50} className="hidden lg:inline ml-8"/>
 							</Link>
-							<Link className="self-center" target="_blank">
+							<a href="mailto:lorenzcastillo5524@gmail.com" className="self-center">
 								<img src={EmailLogo} alt="" width={50} className="hidden lg:inline ml-8"/>
-							</Link>
+							</a>
 						</div>
 					</div>
 				</div>

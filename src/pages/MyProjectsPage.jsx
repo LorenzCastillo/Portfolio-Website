@@ -1,16 +1,16 @@
 // Local Imports
+import AppContext from "../AppContext";
 import NavigationBar from "../components/NavigationBar";
 import ProjectCard from "../components/ProjectCard";
 import Background from "../images/Background.png";
 import Project1 from "../images/Project1.png";
-import Project1Gif from "../images/Project1.gif";
 import Project2 from "../images/Project2.png";
-import Project2Gif from "../images/Project2.gif";
 // 3rd Party Imports
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useContext } from "react";
 
 const MyProjectsPage = () => {
 	const containerRef = useRef(null);
+	const { animateCState1, animateCState2, opacityCState } = useContext(AppContext);
 
 	const handleScrollChange = () => {
 		if (containerRef.current) {
@@ -28,15 +28,15 @@ const MyProjectsPage = () => {
 
 	return (
 		<>
-			<div ref={containerRef} className="h-screen overflow-y-scroll">
-				<img className="absolute w-screen h-screen object-cover bottom-[36rem] z-[-10]" src={Background} />
+			<div ref={containerRef} className="h-screen overflow-x-hidden">
+				<img className={`${animateCState2} absolute w-screen h-screen object-cover bottom-[36rem] z-[-10]`} src={Background} />
 
 				{/* Navigation Bar */}
 				<div className="relative">
 					<NavigationBar isProjectsPage={true}/>
 				</div>
 
-				<div className="relative">
+				<div className={`${animateCState1} ${opacityCState} relative`}>
 					<div className="flex flex-col mt-10">
 						<div className="flex justify-center">
 							<h1 className="font-alte-bold md:text-6xl text-5xl">
@@ -51,14 +51,12 @@ const MyProjectsPage = () => {
 									title={"QuizMe"}
 									description={"QuizMe is a Quiz web app that I developed with libraries such as React.js, TailwindCSS, Axios and React Router DOM. This project was made for my 'Advanced Internet Programming & Web Apps' midterm"}
 									image={Project1}
-									gif={Project1Gif}
 									url={"https://lorenzcastillo-quizme.vercel.app/"}
 								/>
 								<ProjectCard
 									title={"GiveNGo"}
 									description={"GiveNGo is a Web App for my UI/UX Design Course, it's main purpose is to post items to donate to others or to find items that others are donating for free. Made with Next.JS and storing data on the localhost, none of the data on the web app is real"}
 									image={Project2}
-									gif={Project2Gif}
 									url={"https://give-n-go.vercel.app/"}
 								/>
 							</div>

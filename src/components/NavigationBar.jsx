@@ -1,21 +1,203 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
+// Local Imports
+import AppContext from "../AppContext";
 // 3rd Party Imports
-import { Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
-const NavigationBar = (props) => {
+const NavigationBar = () => {
 
 	const [toggle, setToggle] = useState(true);
 	const [displayStatus, setDisplayStatus] = useState("hidden");
+	const [animateState, setAnimateState] = useState("");
 	const [displayNavigation, setDisplayNavigation] = useState("");
 	const [displayHamburger, setDisplayHamburger] = useState("");
-	const [animateState, setAnimateState] = useState("");
+	const { setAnimateCState1, setAnimateCState2, opacityCState, setOpacityCState, resetValues } = useContext(AppContext);
+	const location = useLocation();
+	const navigate = useNavigate();
+
+	const handleHomePageTransition = () => {
+		// About to Home Page
+		if (location.pathname == "/about") {
+			setAnimateCState1("animate-fadeOutSlide");
+			setOpacityCState("opacity-0");
+
+			if (!toggle) {
+				setAnimateState("animate-fadeOutSlide");
+			}
+
+			setTimeout(() => {
+				setAnimateCState1("");
+				setAnimateCState2("");
+				navigate("/home");
+
+				setTimeout(() => {
+					setAnimateCState1("animate-fadeInSlide");
+					setOpacityCState("opacity-100");
+
+					setTimeout(() => {
+						resetValues();
+					}, "700");
+				}, "200");
+			}, "700");
+		}
+		// Projects / Contact to Home Page
+		else if (location.pathname == "/projects" || location.pathname == "/contact") {
+			setAnimateCState1("animate-fadeOutSlide");
+			setAnimateCState2("animate-backgroundUpTransition");
+			setOpacityCState("opacity-0");
+
+			setTimeout(() => {
+				setAnimateCState1("");
+				setAnimateCState2("");
+				navigate("/home");
+
+				setTimeout(() => {
+					setAnimateCState1("animate-fadeInSlide");
+					setOpacityCState("opacity-100");
+
+					setTimeout(() => {
+						resetValues();
+					}, "700");
+				}, "200");
+			}, "1500");
+		}
+	};
+
+	const handleAboutPageTransition = () => {
+		// Home to About Page
+		if (location.pathname == "/" || location.pathname == "/home") {
+			setAnimateCState1("animate-fadeOutSlide");
+			setOpacityCState("opacity-0");
+
+			setTimeout(() => {
+				setAnimateCState1("");
+				navigate("/about");
+
+				setTimeout(() => {
+					setAnimateCState1("animate-fadeInSlide");
+					setOpacityCState("opacity-100");
+
+					setTimeout(() => {
+						resetValues();
+					}, "700");
+				}, "200");
+			}, "700");
+		}
+		// Projects / Contact to About Page
+		else if (location.pathname == "/projects" || location.pathname == "/contact") {
+			setAnimateCState1("animate-fadeOutSlide");
+			setAnimateCState2("animate-backgroundUpTransition");
+			setOpacityCState("opacity-0");
+
+			setTimeout(() => {
+				setAnimateCState1("");
+				setAnimateCState2("");
+				navigate("/about");
+
+				setTimeout(() => {
+					setAnimateCState1("animate-fadeInSlide");
+					setOpacityCState("opacity-100");
+
+					setTimeout(() => {
+						resetValues();
+					}, "700");
+				}, "200");
+			}, "1500");
+		}
+	};
+
+	const handleProjectsPageTransition = () => {
+		// Home / About to Projects Page
+		if (location.pathname == "/" || location.pathname == "/home" || location.pathname == "/about") {
+			setAnimateCState1("animate-fadeOutSlide");
+			setAnimateCState2("animate-backgroundDownTransition");
+			setOpacityCState("opacity-0");
+
+			setTimeout(() => {
+				setAnimateCState1("");
+				setAnimateCState2("");
+				navigate("/projects");
+
+				setTimeout(() => {
+					setAnimateCState1("animate-fadeInSlide");
+					setOpacityCState("opacity-100");
+
+					setTimeout(() => {
+						resetValues();
+					}, "700");
+				}, "200");
+			}, "1500");
+		}
+		// Contact to Projects Page
+		else if (location.pathname == "/contact") {
+			setAnimateCState1("animate-fadeOutSlide");
+			setOpacityCState("opacity-0");
+
+			setTimeout(() => {
+				setAnimateCState1("");
+				navigate("/projects");
+
+				setTimeout(() => {
+					setAnimateCState1("animate-fadeInSlide");
+					setOpacityCState("opacity-100");
+
+					setTimeout(() => {
+						resetValues();
+					}, "700");
+				}, "200");
+			}, "700");
+		}
+	};
+
+	const handleContactPageTransition = () => {
+		// Home / About to Contact Page
+		if (location.pathname == "/" || location.pathname == "/home" || location.pathname == "/about") {
+			setAnimateCState1("animate-fadeOutSlide");
+			setAnimateCState2("animate-backgroundDownTransition");
+			setOpacityCState("opacity-0");
+
+			setTimeout(() => {
+				setAnimateCState1("");
+				setAnimateCState2("");
+				navigate("/contact");
+
+				setTimeout(() => {
+					setAnimateCState1("animate-fadeInSlide");
+					setOpacityCState("opacity-100");
+
+					setTimeout(() => {
+						resetValues();
+					}, "700");
+				}, "200");
+			}, "1500");
+		}
+		// Projects to Contact Page
+		else if (location.pathname == "/projects") {
+			setAnimateCState1("animate-fadeOutSlide");
+			setOpacityCState("opacity-0");
+
+			setTimeout(() => {
+				setAnimateCState1("");
+				navigate("/contact");
+
+				setTimeout(() => {
+					setAnimateCState1("animate-fadeInSlide");
+					setOpacityCState("opacity-100");
+
+					setTimeout(() => {
+						resetValues();
+					}, "700");
+				}, "200");
+			}, "700");
+		}
+	};
 
 	useEffect(() => {
-		if (!props.isAboutPage) {
+		if (location.pathname != "/about") {
 			setDisplayNavigation("lg:flex-none");
 			setDisplayHamburger("lg:hidden");
 		}
@@ -51,24 +233,24 @@ const NavigationBar = (props) => {
 	return (
 		<>
 			<div className="flex flex-row mx-[12%] items-center text-white h-28">
-				<div className={`flex flex-1 ${displayNavigation}`}>
+				<div className={`${displayNavigation} flex flex-1`}>
 					<h1 className="font-alte-bold text-3xl">Lorenz Castillo</h1>
 				</div>
 
-				{!props.isAboutPage &&
+				{location.pathname != "/about" &&
 					<div className="lg:flex hidden flex-row ml-16 gap-8">
-						<Link to={"/home"}>
-							<p className="font-alte-bold text-lg border-2 px-4 py-2 cursor-pointer">Home</p>
-						</Link>
-						<Link to={"/about"}>
+						<button onClick={handleHomePageTransition}>
+							<p className="font-alte-bold text-lg border-2 px-4 py-2">Home</p>
+						</button>
+						<button onClick={handleAboutPageTransition}>
 							<p className="font-alte-bold text-lg border-2 px-4 py-2">About</p>
-						</Link>
-						<Link to={"/projects"}>
+						</button>
+						<button onClick={handleProjectsPageTransition}>
 							<p className="font-alte-bold text-lg border-2 px-4 py-2">My Work</p>
-						</Link>
-						<Link to={"/contact"}>
+						</button>
+						<button onClick={handleContactPageTransition}>
 							<p className="font-alte-bold text-lg border-2 px-4 py-2">Contact</p>
-						</Link>
+						</button>
 					</div>
 				}
 
@@ -80,77 +262,74 @@ const NavigationBar = (props) => {
 				</div>
 			</div>
 
-			<div className={`${displayStatus} fixed w-80 h-screen bg-custom-dark-blue top-0 right-0 text-white z-50 ${animateState}`}>
+			<div className={`${displayStatus} ${animateState} ${opacityCState} fixed w-80 h-screen bg-custom-dark-blue top-0 right-0 text-white z-50`}>
 				<div className="flex flex-col items-end m-8">
 					<button onClick={() => handlePopupMenu()}>
 						<FontAwesomeIcon icon={faXmark} size="2xl"/>
 					</button>
 				</div>
 				<div className="flex flex-col items-start m-8 gap-10">
-					{props.isHomePage ? (
+					{location.pathname == "/" || location.pathname == "/home" ? (
 						<div>
-							<Link to={"/home"}>
-								<h1 className="font-alte-bold text-4xl mb-3">Home</h1>
+							<button onClick={handleHomePageTransition}>
+								<h1 className="flex items-start font-alte-bold text-4xl mb-3 w-40">Home</h1>
 								<div className="h-1.5 w-56 bg-custom-red" />
-							</Link>
+							</button>
 						</div>
 					) : (
-						<div className="hover:animate-menuItemHover animate-menuItemHoverOut hover:w-56 group">
-							<Link to={"/home"}>
-								<h1 className="font-alte-bold text-4xl mb-3 w-40">Home</h1>
-								<div className="h-1.5 bg-custom-red group-hover:opacity-100 opacity-0" />
-							</Link>
-						</div>
+						<button onClick={handleHomePageTransition} className="hover:animate-menuItemHover hover:w-56 group">
+							<h1 className="flex items-start font-alte-bold text-4xl mb-3 w-40">Home</h1>
+							<div className="h-1.5 bg-custom-red group-hover:opacity-100 opacity-0" />
+						</button>
 					)}
 
-					{props.isAboutPage ? (
+					{location.pathname == "/about" ? (
 						<div>
-							<Link to={"/about"}>
-								<h1 className="font-alte-bold text-4xl mb-3">About</h1>
+							<button onClick={handleAboutPageTransition}>
+								<h1 className="flex items-start font-alte-bold text-4xl mb-3 w-40">About</h1>
 								<div className="h-1.5 w-56 bg-custom-red" />
-							</Link>
+							</button>
 						</div>
 					) : (
 						<div className="hover:animate-menuItemHover hover:w-56 group">
-							<Link to={"/about"}>
-								<h1 className="font-alte-bold text-4xl mb-3 w-40">About</h1>
+							<button onClick={handleAboutPageTransition} className="hover:animate-menuItemHover hover:w-56 group">
+								<h1 className="flex items-start font-alte-bold text-4xl mb-3 w-40">About</h1>
 								<div className="h-1.5 bg-custom-red group-hover:opacity-100 opacity-0" />
-							</Link>
+							</button>
 						</div>
 					)}
 
-					{props.isProjectsPage ? (
+					{location.pathname == "/projects" ? (
 						<div>
-							<Link to={"/projects"}>
-								<h1 className="font-alte-bold text-4xl mb-3">My Work</h1>
+							<button onClick={handleProjectsPageTransition} className="hover:animate-menuItemHover hover:w-56 group">
+								<h1 className="flex items-start font-alte-bold text-4xl mb-3 w-40">My Work</h1>
 								<div className="h-1.5 w-56 bg-custom-red" />
-							</Link>
+							</button>
 						</div>
 					) : (
-						<div className="hover:animate-menuItemHover hover:w-56 group">
-							<Link to={"/projects"}>
-								<h1 className="font-alte-bold text-4xl mb-3 w-40">My Work</h1>
+						<div onClick={handleProjectsPageTransition} className="hover:animate-menuItemHover hover:w-56 group">
+							<button className="hover:animate-menuItemHover hover:w-56 group">
+								<h1 className="flex items-start font-alte-bold text-4xl mb-3 w-40">My Work</h1>
 								<div className="h-1.5 bg-custom-red group-hover:opacity-100 opacity-0" />
-							</Link>
+							</button>
 						</div>
 					)}
 
-					{props.isContactPage ? (
+					{location.pathname == "/contact" ? (
 						<div>
-							<Link to={"/contact"}>
-								<h1 className="font-alte-bold text-4xl mb-3">Contact</h1>
+							<button onClick={handleContactPageTransition} className="hover:animate-menuItemHover hover:w-56 group">
+								<h1 className="flex items-start font-alte-bold text-4xl mb-3 w-40">Contact</h1>
 								<div className="h-1.5 w-56 bg-custom-red" />
-							</Link>
+							</button>
 						</div>
 					) : (
-						<div className="hover:animate-menuItemHover hover:w-56 group">
-							<Link to={"/contact"}>
-								<h1 className="font-alte-bold text-4xl mb-3 w-40">Contact</h1>
+						<div onClick={handleContactPageTransition} className="hover:animate-menuItemHover hover:w-56 group">
+							<button className="hover:animate-menuItemHover hover:w-56 group">
+								<h1 className="flex items-start font-alte-bold text-4xl mb-3 w-40">Contact</h1>
 								<div className="h-1.5 bg-custom-red group-hover:opacity-100 opacity-0" />
-							</Link>
+							</button>
 						</div>
 					)}
-
 				</div>
 			</div>
 		</>
