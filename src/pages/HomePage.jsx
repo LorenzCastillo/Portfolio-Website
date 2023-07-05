@@ -62,14 +62,14 @@ const HomePage = () => {
 								{/* MOBILE VIEW: My Portrait Photo */}
 								<div className="lg:hidden flex flex-row mt-10">
 									<Link to={"https://www.linkedin.com/in/lorenzcastillo/"} className="self-center" target="_blank">
-										<img src={LinkedinLogo} alt="" width={50} className="self-center"/>
+										<img src={LinkedinLogo} alt="" width={50}/>
 									</Link>
 									<Link to={"https://github.com/LorenzCastillo"} className="self-center" target="_blank">
-										<img src={GithubLogo} alt="" width={50} className="self-center ml-8"/>
+										<img src={GithubLogo} alt="" width={50} className="ml-8"/>
 									</Link>
-									<Link className="self-center" target="_blank">
-										<img src={EmailLogo} alt="" width={50} className="self-center ml-8"/>
-									</Link>
+									<a href="mailto:lorenzcastillo5524@gmail.com" className="self-center">
+										<img src={EmailLogo} alt="" width={50} className="ml-8"/>
+									</a>
 								</div>
 
 								{/* MOBILE VIEW: My Portrait Photo */}
@@ -95,9 +95,9 @@ const HomePage = () => {
 							<Link to={"https://github.com/LorenzCastillo"} className="self-center" target="_blank">
 								<img src={GithubLogo} alt="" width={50} className="hidden lg:inline ml-8"/>
 							</Link>
-							<Link className="self-center" target="_blank">
+							<a href="mailto:lorenzcastillo5524@gmail.com" className="self-center">
 								<img src={EmailLogo} alt="" width={50} className="hidden lg:inline ml-8"/>
-							</Link>
+							</a>
 						</div>
 					</div>
 				</div>

@@ -138,37 +138,47 @@ const ContactPage = () => {
 								<div className="grid md:grid-cols-2 grid-cols-1 gap-4 md:w-[48rem]">
 									<div className="flex flex-row items-center">
 										<FontAwesomeIcon icon={faUser} className="absolute pointer-events-none h-5 w-5 p-2 ml-2" style={{ color: "#545454" }} />
-										<input className="w-full rounded-lg py-2 pl-14 pr-3" name="from_name" value={nameValue} onChange={handleNameValue} type="text" placeholder="Name"></input>
+										<input className="w-full rounded-lg py-2 pl-14 pr-3" name="from_name" value={nameValue} onChange={handleNameValue} type="text" placeholder="Name" required></input>
 									</div>
 
 									<div className="flex flex-row items-center">
 										<FontAwesomeIcon icon={faEnvelope} className="absolute pointer-events-none h-5 w-5 p-2 ml-2" style={{ color: "#545454" }} />
-										<input className="w-full rounded-lg py-2 pl-14 pr-3" name="from_email" value={emailValue} onChange={handleEmailValue} type="text" placeholder="Email"></input>
+										<input className="w-full rounded-lg py-2 pl-14 pr-3" name="from_email" value={emailValue} onChange={handleEmailValue} type="text" placeholder="Email" required></input>
 									</div>
 
 									<div className="flex flex-row items-center">
 										<FontAwesomeIcon icon={faPencil} className="absolute pointer-events-none h-5 w-5 p-2 ml-2" style={{ color: "#545454" }} />
-										<input className="w-full rounded-lg py-2 pl-14 pr-3" name="subject_name" value={subjectValue} onChange={handleSubjectValue} type="text" placeholder="Subject"></input>
+										<input className="w-full rounded-lg py-2 pl-14 pr-3" name="subject_name" value={subjectValue} onChange={handleSubjectValue} type="text" placeholder="Subject" required></input>
 									</div>
 
 									<div className="flex flex-row items-center">
 										<FontAwesomeIcon icon={faPhone} className="absolute pointer-events-none h-5 w-5 p-2 ml-2" style={{ color: "#545454" }} />
-										<input className="w-full rounded-lg py-2 pl-14 pr-3" name="from_phone" value={phoneValue} onChange={handlePhoneValue} type="text" placeholder="Phone"></input>
+										<input className="w-full rounded-lg py-2 pl-14 pr-3" name="from_phone" value={phoneValue} onChange={handlePhoneValue} type="text" placeholder="Phone" required></input>
 									</div>
 								</div>
 
 								<div className="mt-4">
 									<FontAwesomeIcon icon={faMessage} className="absolute pointer-events-none h-5 w-5 p-2 ml-2 mt-1" style={{ color: "#545454" }} />
-									<textarea rows={6} className="w-full rounded-lg py-2 pl-14 pr-3 resize-none" value={messageValue} onChange={handleMessageValue} name="from_message" placeholder="Message"></textarea>
+									<textarea rows={6} className="w-full rounded-lg py-2 pl-14 pr-3 resize-none" value={messageValue} onChange={handleMessageValue} name="from_message" placeholder="Message" required></textarea>
+								</div>
+
+								<div className="font-alte-bold text-white text-lg">
+									<p>
+										<span>Or contact me directly by clicking</span>
+										<a href="mailto:lorenzcastillo5524@gmail.com">
+											<span className="text-custom-red ml-1">here</span>
+										</a>
+									</p>
 								</div>
 
 								<div className="mt-4">
 									<button type="submit">
-										<div className="flex w-40 h-12 bg-custom-red rounded-lg items-center justify-center">
+										<div className="flex w-40 h-12 bg-custom-red hover:bg-custom-red-hover rounded-lg items-center justify-center">
 											<p className="font-alte-bold text-white text-lg">Send Message</p>
 										</div>
 									</button>
 								</div>
+
 							</form>
 						</div>
 					</div>
