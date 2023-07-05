@@ -17,17 +17,22 @@ export default {
 		extend: {
 			colors: {
 				"custom-red": "#F05D5E",
+				"custom-red-hover": "#D64D4E",
 				"custom-dark-purple": "#02060F",
 				"custom-dark-blue": "#040916",
 				"custom-extra-dark-blue": "#02060F",
-				"custom-light-blue": "#111E42"
+				"custom-light-blue": "#111E42",
+				"custom-background": "#0E2258"
+			},
+			backgroundImage: {
+				"gradient-radial": "radial-gradient(var(--gradient-color-stops))"
 			},
 			animation: {
 				popUpMenuIn: "popUpMenuIn 0.3s ease-out",
 				popUpMenuOut: "popUpMenuOut 0.3s ease-in",
 				menuItemHover: "menuItemHover 0.3s ease-out",
-				fadeIn: "fadeIn 0.5s ease-in",
-				fadeOut: "fadeOut 0.5s ease-out",
+				fadeIn: "fadeIn 0.3s ease-out",
+				fadeOut: "fadeOut 0.3s ease-in",
 				widthExpandXL: "widthExpandXL 0.5s ease-in-out",
 				widthShrinkXL: "widthShrinkXL 0.5s ease-in-out",
 				widthButtonExpandXL: "widthButtonExpandXL 0.5s ease-in-out",
@@ -40,6 +45,10 @@ export default {
 				widthShrinkMD: "widthShrinkMD 0.5s ease-in-out",
 				widthExpandSM: "widthExpandSM 0.5s ease-in-out",
 				widthShrinkSM: "widthShrinkSM 0.5s ease-in-out",
+				fadeInSlide: "fadeInSlide 0.7s ease-in-out",
+				fadeOutSlide: "fadeOutSlide 0.7s ease-in-out",
+				backgroundUpTransition: "backgroundUpTransition 1.5s ease-in-out",
+				backgroundDownTransition: "backgroundDownTransition 1.5s ease-in-out",
 			},
 			keyframes: {
 				popUpMenuIn: {
@@ -176,6 +185,42 @@ export default {
 					},
 					"100%": {
 						width: "40rem"
+					}
+				},
+				fadeInSlide: {
+					"0%": {
+						transform: "translate(50px, 0px)",
+						opacity: "0%"
+					},
+					"100%": {
+						transform: "translate(0px, 0px)",
+						opacity: "100%"
+					},
+				},
+				fadeOutSlide: {
+					"0%": {
+						transform: "translate(0px, 0px)",
+						opacity: "100%"
+					},
+					"100%": {
+						transform: "translate(-50px, 0px)",
+						opacity: "0%"
+					},
+				},
+				backgroundUpTransition: {
+					"0%": {
+						transform: "translate(0px, 0px)"
+					},
+					"100%": {
+						transform: "translate(0px, 570px)"
+					}
+				},
+				backgroundDownTransition: {
+					"0%": {
+						transform: "translate(0px, 0px)"
+					},
+					"100%": {
+						transform: "translate(0px, -570px)"
 					}
 				}
 			}
