@@ -63,7 +63,6 @@ const ContactPage = () => {
 		setAnimateFailedState("animate-fadeIn");
 		setOpacityFailedState("opacity-100");
 
-		
 		setTimeout(() => {
 			setAnimateFailedState("animate-fadeOut");
 			setOpacityFailedState("opacity-0");

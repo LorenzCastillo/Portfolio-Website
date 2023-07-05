@@ -3,9 +3,7 @@ import NavigationBar from "../components/NavigationBar";
 import ProjectCard from "../components/ProjectCard";
 import Background from "../images/Background.png";
 import Project1 from "../images/Project1.png";
-import Project1Gif from "../images/Project1.gif";
 import Project2 from "../images/Project2.png";
-import Project2Gif from "../images/Project2.gif";
 // 3rd Party Imports
 import { useRef, useEffect } from "react";
 
@@ -51,14 +49,12 @@ const MyProjectsPage = () => {
 									title={"QuizMe"}
 									description={"QuizMe is a Quiz web app that I developed with libraries such as React.js, TailwindCSS, Axios and React Router DOM. This project was made for my 'Advanced Internet Programming & Web Apps' midterm"}
 									image={Project1}
-									gif={Project1Gif}
 									url={"https://lorenzcastillo-quizme.vercel.app/"}
 								/>
 								<ProjectCard
 									title={"GiveNGo"}
 									description={"GiveNGo is a Web App for my UI/UX Design Course, it's main purpose is to post items to donate to others or to find items that others are donating for free. Made with Next.JS and storing data on the localhost, none of the data on the web app is real"}
 									image={Project2}
-									gif={Project2Gif}
 									url={"https://give-n-go.vercel.app/"}
 								/>
 							</div>
