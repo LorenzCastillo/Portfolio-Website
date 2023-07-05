@@ -20,7 +20,7 @@ const AboutMePage = () => {
 	const [widthAnimation, setWidthAnimation] = useState("");
 	const [widthButtonAnimation, setWidthButtonAnimation] = useState("");
 	const [windowSize, setWindowSize] = useState(window.innerWidth);
-	const { animateCState1, opacityCState } = useContext(AppContext);
+	const { animateCState1, animateCState2, opacityCState } = useContext(AppContext);
 
 	const handleScrollChange = () => {
 		if (containerRef.current) {
@@ -125,8 +125,8 @@ const AboutMePage = () => {
 
 	return (
 		<>
-			<div ref={containerRef} className="h-screen overflow-y-scroll overflow-x-hidden">
-				<img className="absolute w-screen h-screen object-cover" src={Background} />
+			<div ref={containerRef} className="h-screen overflow-x-hidden">
+				<img className={`${animateCState2} absolute w-screen h-screen object-cover`} src={Background} />
 				{/* About Me Background */}
 				<div className={`${aboutPageVisibility} ${widthAnimation} ${animateCState1} ${opacityCState} absolute h-screen lg:w-[55rem] sm:w-[40rem] w-screen bg-custom-extra-dark-blue transition-all ease-in-out duration-500`}/>
 				{/* Who I Am Background */}
@@ -168,7 +168,7 @@ const AboutMePage = () => {
 						</div>
 
 						<div className="flex flex-col mt-8">
-							<h1 className={`font-alte-bold text-6xl mb-10 ${opacityState} ${fadeAnimation}`}>
+							<h1 className={`${opacityState} ${fadeAnimation} font-alte-bold text-6xl mb-10`}>
 								<span className="text-white">About</span>
 								<span className="text-custom-red"> Me</span>
 
@@ -178,7 +178,7 @@ const AboutMePage = () => {
 									</div>
 								</button>
 							</h1>
-							<p className={`text-white sm:w-[28rem] lg:w-[34rem] font-alte-bold lg:text-3xl text-2xl mb-10 z-20 ${opacityState} ${fadeAnimation}`}>
+							<p className={`${opacityState} ${fadeAnimation} text-white sm:w-[28rem] lg:w-[34rem] font-alte-bold lg:text-3xl text-2xl mb-10 z-20`}>
 								I am a second-year computer science
 								student at Vancouver Community College
 								with 2 years of experience with website
@@ -187,9 +187,9 @@ const AboutMePage = () => {
 								developer
 							</p>
 
-							<h1 className={`text-white font-alte-bold text-4xl mb-4 ${opacityState} ${fadeAnimation}`}>My Skills</h1>
+							<h1 className={`${opacityState} ${fadeAnimation} text-white font-alte-bold text-4xl mb-4`}>My Skills</h1>
 
-							<div className={`flex flex-col gap-2 ${opacityState} ${fadeAnimation}`}>
+							<div className={`${opacityState} ${fadeAnimation} flex flex-col gap-2`}>
 								<div className="flex flex-wrap gap-2 md:w-[24rem] lg:w-[32rem]">
 									<SkillCard skill={"HTML"}/>
 									<SkillCard skill={"CSS"}/>
@@ -223,7 +223,7 @@ const AboutMePage = () => {
 
 						<div className="flex xl:flex-row flex-col">
 							<div className="flex flex-col mt-8">
-								<h1 className={`font-alte-bold text-6xl mb-10 ${opacityState} ${fadeAnimation}`}>
+								<h1 className={`${opacityState} ${fadeAnimation} font-alte-bold text-6xl mb-10`}>
 									<span className="text-white">Who I</span>
 									<span className="text-custom-red"> Am</span>
 
@@ -233,7 +233,7 @@ const AboutMePage = () => {
 										</div>
 									</button>
 								</h1>
-								<p className={`flex flex-wrap text-white sm:w-[30rem] font-alte-bold xl:text-3xl text-2xl mb-6 z-20 ${opacityState} ${fadeAnimation}`}>
+								<p className={`${opacityState} ${fadeAnimation} flex flex-wrap text-white sm:w-[30rem] font-alte-bold xl:text-3xl text-2xl mb-6 z-20`}>
 									Born in 2001, I am graduating from Vancouver Community
 									College in August 2023 with a 2-year diploma. I currently
 									work at Fort Langley in a grocery store called Lee’s
@@ -246,7 +246,7 @@ const AboutMePage = () => {
 								</p>
 							</div>
 
-							<div className={`flex xl:items-center xl:h-[36rem] xl:ml-24 z-10 ${opacityState} ${fadeAnimation}`}>
+							<div className={`${opacityState} ${fadeAnimation} flex xl:items-center xl:h-[36rem] xl:ml-24 z-10`}>
 								<ProfilePicture/>
 							</div>
 						</div>

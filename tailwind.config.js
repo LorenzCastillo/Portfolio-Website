@@ -48,6 +48,7 @@ export default {
 				fadeInSlide: "fadeInSlide 0.7s ease-in-out",
 				fadeOutSlide: "fadeOutSlide 0.7s ease-in-out",
 				backgroundUpTransition: "backgroundUpTransition 1.5s ease-in-out",
+				backgroundDownTransition: "backgroundDownTransition 1.5s ease-in-out",
 			},
 			keyframes: {
 				popUpMenuIn: {
@@ -212,6 +213,14 @@ export default {
 					},
 					"100%": {
 						transform: "translate(0px, 570px)"
+					}
+				},
+				backgroundDownTransition: {
+					"0%": {
+						transform: "translate(0px, 0px)"
+					},
+					"100%": {
+						transform: "translate(0px, -570px)"
 					}
 				}
 			}

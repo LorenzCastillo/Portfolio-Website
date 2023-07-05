@@ -3,7 +3,7 @@
 // Local Imports
 import AppContext from "../AppContext";
 // 3rd Party Imports
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect, useContext } from "react";
@@ -15,7 +15,7 @@ const NavigationBar = () => {
 	const [animateState, setAnimateState] = useState("");
 	const [displayNavigation, setDisplayNavigation] = useState("");
 	const [displayHamburger, setDisplayHamburger] = useState("");
-	const { animateCState1, setAnimateCState1, animateCState2, setAnimateCState2, opacityCState, setOpacityCState, resetValues } = useContext(AppContext);
+	const { setAnimateCState1, setAnimateCState2, opacityCState, setOpacityCState, resetValues } = useContext(AppContext);
 	const location = useLocation();
 	const navigate = useNavigate();
 
@@ -31,6 +31,7 @@ const NavigationBar = () => {
 
 			setTimeout(() => {
 				setAnimateCState1("");
+				setAnimateCState2("");
 				navigate("/home");
 
 				setTimeout(() => {
@@ -41,37 +42,17 @@ const NavigationBar = () => {
 						resetValues();
 					}, "700");
 				}, "200");
-			}, "1000");
+			}, "700");
 		}
-		// Projects to Home Page
-		else if (location.pathname == "/projects") {
-			setAnimateCState1("animate-backgroundUpTransition");
-			setAnimateCState2("animate-fadeOutSlide");
+		// Projects / Contact to Home Page
+		else if (location.pathname == "/projects" || location.pathname == "/contact") {
+			setAnimateCState1("animate-fadeOutSlide");
+			setAnimateCState2("animate-backgroundUpTransition");
 			setOpacityCState("opacity-0");
 
 			setTimeout(() => {
 				setAnimateCState1("");
-				navigate("/home");
-
-				setTimeout(() => {
-					setAnimateCState1("animate-fadeInSlide");
-					setOpacityCState("opacity-100");
-
-					setTimeout(() => {
-						resetValues();
-					}, "700");
-				}, "200");
-			}, "1500");
-		}
-
-		// Contact to Home Page
-		else if (location.pathname == "/contact") {
-			setAnimateCState1("animate-backgroundUpTransition");
-			setAnimateCState2("animate-fadeOutSlide");
-			setOpacityCState("opacity-0");
-
-			setTimeout(() => {
-				setAnimateCState1("");
+				setAnimateCState2("");
 				navigate("/home");
 
 				setTimeout(() => {
@@ -87,15 +68,132 @@ const NavigationBar = () => {
 	};
 
 	const handleAboutPageTransition = () => {
+		// Home to About Page
+		if (location.pathname == "/" || location.pathname == "/home") {
+			setAnimateCState1("animate-fadeOutSlide");
+			setOpacityCState("opacity-0");
 
+			setTimeout(() => {
+				setAnimateCState1("");
+				navigate("/about");
+
+				setTimeout(() => {
+					setAnimateCState1("animate-fadeInSlide");
+					setOpacityCState("opacity-100");
+
+					setTimeout(() => {
+						resetValues();
+					}, "700");
+				}, "200");
+			}, "700");
+		}
+		// Projects / Contact to About Page
+		else if (location.pathname == "/projects" || location.pathname == "/contact") {
+			setAnimateCState1("animate-fadeOutSlide");
+			setAnimateCState2("animate-backgroundUpTransition");
+			setOpacityCState("opacity-0");
+
+			setTimeout(() => {
+				setAnimateCState1("");
+				setAnimateCState2("");
+				navigate("/about");
+
+				setTimeout(() => {
+					setAnimateCState1("animate-fadeInSlide");
+					setOpacityCState("opacity-100");
+
+					setTimeout(() => {
+						resetValues();
+					}, "700");
+				}, "200");
+			}, "1500");
+		}
 	};
 
 	const handleProjectsPageTransition = () => {
+		// Home / About to Projects Page
+		if (location.pathname == "/" || location.pathname == "/home" || location.pathname == "/about") {
+			setAnimateCState1("animate-fadeOutSlide");
+			setAnimateCState2("animate-backgroundDownTransition");
+			setOpacityCState("opacity-0");
 
+			setTimeout(() => {
+				setAnimateCState1("");
+				setAnimateCState2("");
+				navigate("/projects");
+
+				setTimeout(() => {
+					setAnimateCState1("animate-fadeInSlide");
+					setOpacityCState("opacity-100");
+
+					setTimeout(() => {
+						resetValues();
+					}, "700");
+				}, "200");
+			}, "1500");
+		}
+		// Contact to Projects Page
+		else if (location.pathname == "/contact") {
+			setAnimateCState1("animate-fadeOutSlide");
+			setOpacityCState("opacity-0");
+
+			setTimeout(() => {
+				setAnimateCState1("");
+				navigate("/projects");
+
+				setTimeout(() => {
+					setAnimateCState1("animate-fadeInSlide");
+					setOpacityCState("opacity-100");
+
+					setTimeout(() => {
+						resetValues();
+					}, "700");
+				}, "200");
+			}, "700");
+		}
 	};
 
 	const handleContactPageTransition = () => {
+		// Home / About to Contact Page
+		if (location.pathname == "/" || location.pathname == "/home" || location.pathname == "/about") {
+			setAnimateCState1("animate-fadeOutSlide");
+			setAnimateCState2("animate-backgroundDownTransition");
+			setOpacityCState("opacity-0");
 
+			setTimeout(() => {
+				setAnimateCState1("");
+				setAnimateCState2("");
+				navigate("/contact");
+
+				setTimeout(() => {
+					setAnimateCState1("animate-fadeInSlide");
+					setOpacityCState("opacity-100");
+
+					setTimeout(() => {
+						resetValues();
+					}, "700");
+				}, "200");
+			}, "1500");
+		}
+		// Projects to Contact Page
+		else if (location.pathname == "/projects") {
+			setAnimateCState1("animate-fadeOutSlide");
+			setOpacityCState("opacity-0");
+
+			setTimeout(() => {
+				setAnimateCState1("");
+				navigate("/contact");
+
+				setTimeout(() => {
+					setAnimateCState1("animate-fadeInSlide");
+					setOpacityCState("opacity-100");
+
+					setTimeout(() => {
+						resetValues();
+					}, "700");
+				}, "200");
+			}, "700");
+		}
 	};
 
 	useEffect(() => {
@@ -135,24 +233,24 @@ const NavigationBar = () => {
 	return (
 		<>
 			<div className="flex flex-row mx-[12%] items-center text-white h-28">
-				<div className={`flex flex-1 ${displayNavigation}`}>
+				<div className={`${displayNavigation} flex flex-1`}>
 					<h1 className="font-alte-bold text-3xl">Lorenz Castillo</h1>
 				</div>
 
 				{location.pathname != "/about" &&
 					<div className="lg:flex hidden flex-row ml-16 gap-8">
 						<button onClick={handleHomePageTransition}>
-							<p className="font-alte-bold text-lg border-2 px-4 py-2 cursor-pointer">Home</p>
+							<p className="font-alte-bold text-lg border-2 px-4 py-2">Home</p>
 						</button>
-						<Link to={"/about"}>
+						<button onClick={handleAboutPageTransition}>
 							<p className="font-alte-bold text-lg border-2 px-4 py-2">About</p>
-						</Link>
-						<Link to={"/projects"}>
+						</button>
+						<button onClick={handleProjectsPageTransition}>
 							<p className="font-alte-bold text-lg border-2 px-4 py-2">My Work</p>
-						</Link>
-						<Link to={"/contact"}>
+						</button>
+						<button onClick={handleContactPageTransition}>
 							<p className="font-alte-bold text-lg border-2 px-4 py-2">Contact</p>
-						</Link>
+						</button>
 					</div>
 				}
 
@@ -174,62 +272,62 @@ const NavigationBar = () => {
 					{location.pathname == "/" || location.pathname == "/home" ? (
 						<div>
 							<button onClick={handleHomePageTransition}>
-								<h1 className="flex items-start font-alte-bold text-4xl mb-3">Home</h1>
+								<h1 className="flex items-start font-alte-bold text-4xl mb-3 w-40">Home</h1>
 								<div className="h-1.5 w-56 bg-custom-red" />
 							</button>
 						</div>
 					) : (
 						<button onClick={handleHomePageTransition} className="hover:animate-menuItemHover hover:w-56 group">
-							<h1 className="flex items-start font-alte-bold text-4xl mb-3">Home</h1>
+							<h1 className="flex items-start font-alte-bold text-4xl mb-3 w-40">Home</h1>
 							<div className="h-1.5 bg-custom-red group-hover:opacity-100 opacity-0" />
 						</button>
 					)}
 
 					{location.pathname == "/about" ? (
 						<div>
-							<Link to={"/about"}>
-								<h1 className="font-alte-bold text-4xl mb-3">About</h1>
+							<button onClick={handleAboutPageTransition}>
+								<h1 className="flex items-start font-alte-bold text-4xl mb-3 w-40">About</h1>
 								<div className="h-1.5 w-56 bg-custom-red" />
-							</Link>
+							</button>
 						</div>
 					) : (
 						<div className="hover:animate-menuItemHover hover:w-56 group">
-							<Link to={"/about"}>
-								<h1 className="font-alte-bold text-4xl mb-3 w-40">About</h1>
+							<button onClick={handleAboutPageTransition} className="hover:animate-menuItemHover hover:w-56 group">
+								<h1 className="flex items-start font-alte-bold text-4xl mb-3 w-40">About</h1>
 								<div className="h-1.5 bg-custom-red group-hover:opacity-100 opacity-0" />
-							</Link>
+							</button>
 						</div>
 					)}
 
 					{location.pathname == "/projects" ? (
 						<div>
-							<Link to={"/projects"}>
-								<h1 className="font-alte-bold text-4xl mb-3">My Work</h1>
+							<button onClick={handleProjectsPageTransition} className="hover:animate-menuItemHover hover:w-56 group">
+								<h1 className="flex items-start font-alte-bold text-4xl mb-3 w-40">My Work</h1>
 								<div className="h-1.5 w-56 bg-custom-red" />
-							</Link>
+							</button>
 						</div>
 					) : (
-						<div className="hover:animate-menuItemHover hover:w-56 group">
-							<Link to={"/projects"}>
-								<h1 className="font-alte-bold text-4xl mb-3 w-40">My Work</h1>
+						<div onClick={handleProjectsPageTransition} className="hover:animate-menuItemHover hover:w-56 group">
+							<button className="hover:animate-menuItemHover hover:w-56 group">
+								<h1 className="flex items-start font-alte-bold text-4xl mb-3 w-40">My Work</h1>
 								<div className="h-1.5 bg-custom-red group-hover:opacity-100 opacity-0" />
-							</Link>
+							</button>
 						</div>
 					)}
 
 					{location.pathname == "/contact" ? (
 						<div>
-							<Link to={"/contact"}>
-								<h1 className="font-alte-bold text-4xl mb-3">Contact</h1>
+							<button onClick={handleContactPageTransition} className="hover:animate-menuItemHover hover:w-56 group">
+								<h1 className="flex items-start font-alte-bold text-4xl mb-3 w-40">Contact</h1>
 								<div className="h-1.5 w-56 bg-custom-red" />
-							</Link>
+							</button>
 						</div>
 					) : (
-						<div className="hover:animate-menuItemHover hover:w-56 group">
-							<Link to={"/contact"}>
-								<h1 className="font-alte-bold text-4xl mb-3 w-40">Contact</h1>
+						<div onClick={handleContactPageTransition} className="hover:animate-menuItemHover hover:w-56 group">
+							<button className="hover:animate-menuItemHover hover:w-56 group">
+								<h1 className="flex items-start font-alte-bold text-4xl mb-3 w-40">Contact</h1>
 								<div className="h-1.5 bg-custom-red group-hover:opacity-100 opacity-0" />
-							</Link>
+							</button>
 						</div>
 					)}
 				</div>

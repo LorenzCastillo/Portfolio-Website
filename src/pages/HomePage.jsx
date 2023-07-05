@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 const HomePage = () => {
 	const containerRef = useRef(null);
-	const { animateCState1, opacityCState } = useContext(AppContext);
+	const { animateCState1, animateCState2, opacityCState } = useContext(AppContext);
 
 	const handleScrollChange = () => {
 		if (containerRef.current) {
@@ -31,23 +31,23 @@ const HomePage = () => {
 
 	return (
 		<>
-			<div ref={containerRef} className="h-screen">
+			<div ref={containerRef} className="h-screen overflow-x-hidden">
 				{/* Background */}
-				<img className="absolute w-screen h-screen object-cover z-[-10]" src={Background} />
+				<img className={`${animateCState2} absolute w-screen h-screen object-cover z-[-10]`} src={Background} />
 
 				{/* Navigation Bar */}
 				<div className="relative">
 					<NavigationBar isHomePage={true}/>
 				</div>
 
-				<div className={`absolute mx-[12%] h-[85%] ${animateCState1} ${opacityCState}`}>
+				<div className={`${animateCState1} ${opacityCState} absolute mx-[12%] h-[85%]`}>
 					<div className="flex flex-col gap-10 mt-8">
 						{/* Flex row containing first line deco, text and the image */}
 						<div className="flex flex-row items-center">
 							{/* Line decoration 1 (Disappears in mobile view)*/}
 							<div className="hidden lg:flex h-[32rem] w-1 rounded-full bg-custom-red" />
 							{/* Flex column of the text content */}
-							<div className="flex flex-col lg:ml-10 lg:mt-12 lg:mr-20">
+							<div className="flex flex-col lg:ml-10 lg:mt-12 lg:mr-32">
 								<h1 className="font-alte-bold text-[5rem] text-white leading-none">Hello</h1>
 								<h1 className="font-alte-bold text-[5rem] text-white leading-none">
 									<span>I{"'"}m Lorenz</span>

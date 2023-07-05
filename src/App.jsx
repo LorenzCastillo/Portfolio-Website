@@ -24,7 +24,7 @@ function App() {
 			path: "/",
 			element:
 			<AppContext.Provider value={{
-				animateCState1, setAnimateCState1, opacityCState, setOpacityCState, resetValues
+				animateCState1, setAnimateCState1, animateCState2, setAnimateCState2, opacityCState, setOpacityCState, resetValues
 			}}>
 				<HomePage/>
 			</AppContext.Provider>
@@ -33,7 +33,7 @@ function App() {
 			path: "/home",
 			element:
 			<AppContext.Provider value={{
-				animateCState1, setAnimateCState1, opacityCState, setOpacityCState, resetValues
+				animateCState1, setAnimateCState1, animateCState2, setAnimateCState2, opacityCState, setOpacityCState, resetValues
 			}}>
 				<HomePage/>
 			</AppContext.Provider>
@@ -42,7 +42,7 @@ function App() {
 			path: "/about",
 			element:
 			<AppContext.Provider value={{
-				animateCState1, setAnimateCState1, opacityCState, setOpacityCState, resetValues
+				animateCState1, setAnimateCState1, animateCState2, setAnimateCState2, opacityCState, setOpacityCState, resetValues
 			}}>
 				<AboutMePage/>
 			</AppContext.Provider>

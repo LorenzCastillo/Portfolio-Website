@@ -28,15 +28,15 @@ const MyProjectsPage = () => {
 
 	return (
 		<>
-			<div ref={containerRef} className="h-screen overflow-y-scroll">
-				<img className={`absolute w-screen h-screen object-cover bottom-[36rem] z-[-10] ${animateCState1}`} src={Background} />
+			<div ref={containerRef} className="h-screen overflow-x-hidden">
+				<img className={`${animateCState2} absolute w-screen h-screen object-cover bottom-[36rem] z-[-10]`} src={Background} />
 
 				{/* Navigation Bar */}
 				<div className="relative">
 					<NavigationBar isProjectsPage={true}/>
 				</div>
 
-				<div className={`relative ${animateCState2} ${opacityCState}`}>
+				<div className={`${animateCState1} ${opacityCState} relative`}>
 					<div className="flex flex-col mt-10">
 						<div className="flex justify-center">
 							<h1 className="font-alte-bold md:text-6xl text-5xl">
