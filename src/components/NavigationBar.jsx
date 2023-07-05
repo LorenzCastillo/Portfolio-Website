@@ -15,13 +15,14 @@ const NavigationBar = () => {
 	const [animateState, setAnimateState] = useState("");
 	const [displayNavigation, setDisplayNavigation] = useState("");
 	const [displayHamburger, setDisplayHamburger] = useState("");
-	const { animateCState, setAnimateCState, opacityCState, setOpacityCState } = useContext(AppContext);
+	const { animateCState1, setAnimateCState1, animateCState2, setAnimateCState2, opacityCState, setOpacityCState, resetValues } = useContext(AppContext);
 	const location = useLocation();
 	const navigate = useNavigate();
 
 	const handleHomePageTransition = () => {
+		// About to Home Page
 		if (location.pathname == "/about") {
-			setAnimateCState("animate-fadeOutSlide");
+			setAnimateCState1("animate-fadeOutSlide");
 			setOpacityCState("opacity-0");
 
 			if (!toggle) {
@@ -29,20 +30,60 @@ const NavigationBar = () => {
 			}
 
 			setTimeout(() => {
-				setAnimateCState("");
+				setAnimateCState1("");
 				navigate("/home");
 
 				setTimeout(() => {
-					setAnimateCState("animate-fadeInSlide");
+					setAnimateCState1("animate-fadeInSlide");
 					setOpacityCState("opacity-100");
-				}, "1000");
+
+					setTimeout(() => {
+						resetValues();
+					}, "700");
+				}, "200");
 			}, "1000");
 		}
-		// } else if (location.pathname == "/projects") {
+		// Projects to Home Page
+		else if (location.pathname == "/projects") {
+			setAnimateCState1("animate-backgroundUpTransition");
+			setAnimateCState2("animate-fadeOutSlide");
+			setOpacityCState("opacity-0");
 
-		// } else if (location.pathname == "/contact") {
+			setTimeout(() => {
+				setAnimateCState1("");
+				navigate("/home");
 
-		// }
+				setTimeout(() => {
+					setAnimateCState1("animate-fadeInSlide");
+					setOpacityCState("opacity-100");
+
+					setTimeout(() => {
+						resetValues();
+					}, "700");
+				}, "200");
+			}, "1500");
+		}
+
+		// Contact to Home Page
+		else if (location.pathname == "/contact") {
+			setAnimateCState1("animate-backgroundUpTransition");
+			setAnimateCState2("animate-fadeOutSlide");
+			setOpacityCState("opacity-0");
+
+			setTimeout(() => {
+				setAnimateCState1("");
+				navigate("/home");
+
+				setTimeout(() => {
+					setAnimateCState1("animate-fadeInSlide");
+					setOpacityCState("opacity-100");
+
+					setTimeout(() => {
+						resetValues();
+					}, "700");
+				}, "200");
+			}, "1500");
+		}
 	};
 
 	const handleAboutPageTransition = () => {

@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 const HomePage = () => {
 	const containerRef = useRef(null);
-	const { animateCState, opacityCState } = useContext(AppContext);
+	const { animateCState1, opacityCState } = useContext(AppContext);
 
 	const handleScrollChange = () => {
 		if (containerRef.current) {
@@ -40,7 +40,7 @@ const HomePage = () => {
 					<NavigationBar isHomePage={true}/>
 				</div>
 
-				<div className={`absolute mx-[12%] h-[85%] ${animateCState} ${opacityCState}`}>
+				<div className={`absolute mx-[12%] h-[85%] ${animateCState1} ${opacityCState}`}>
 					<div className="flex flex-col gap-10 mt-8">
 						{/* Flex row containing first line deco, text and the image */}
 						<div className="flex flex-row items-center">

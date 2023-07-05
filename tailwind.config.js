@@ -47,6 +47,7 @@ export default {
 				widthShrinkSM: "widthShrinkSM 0.5s ease-in-out",
 				fadeInSlide: "fadeInSlide 0.7s ease-in-out",
 				fadeOutSlide: "fadeOutSlide 0.7s ease-in-out",
+				backgroundUpTransition: "backgroundUpTransition 1.5s ease-in-out",
 			},
 			keyframes: {
 				popUpMenuIn: {
@@ -201,9 +202,17 @@ export default {
 						opacity: "100%"
 					},
 					"100%": {
-						transform: "translate(50px, 0px)",
+						transform: "translate(-50px, 0px)",
 						opacity: "0%"
 					},
+				},
+				backgroundUpTransition: {
+					"0%": {
+						transform: "translate(0px, 0px)"
+					},
+					"100%": {
+						transform: "translate(0px, 570px)"
+					}
 				}
 			}
 		}

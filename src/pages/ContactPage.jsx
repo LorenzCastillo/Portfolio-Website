@@ -1,8 +1,9 @@
 // Local Imports
 import NavigationBar from "../components/NavigationBar";
 import Background from "../images/Background.png";
+import AppContext from "../AppContext";
 // 3rd Party Imports
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faEnvelope, faPencil, faPhone, faMessage, faCircleCheck, faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 import emailjs from "@emailjs/browser";
@@ -19,6 +20,7 @@ const ContactPage = () => {
 	const [opacitySuccessState, setOpacitySuccessState] = useState("opacity-0");
 	const [animateFailedState, setAnimateFailedState] = useState("");
 	const [opacityFailedState, setOpacityFailedState] = useState("opacity-0");
+	const { animateCState1, animateCState2, opacityCState } = useContext(AppContext);
 	const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 	const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 	const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
@@ -104,7 +106,7 @@ const ContactPage = () => {
 	return (
 		<>
 			<div ref={containerRef} className="h-screen overflow-y-scroll">
-				<img className="absolute w-screen h-screen object-cover bottom-[36rem] z-[-10]" src={Background} />
+				<img className={`absolute w-screen h-screen object-cover bottom-[36rem] z-[-10] ${animateCState1}`} src={Background} />
 				<div className={`absolute flex w-screen justify-center mt-24 ${animateSuccessState} ${opacitySuccessState}`}>
 					<div className="flex h-10 w-80 bg-green-500 items-center text-white font-alte-bold text-lg px-4">
 						<FontAwesomeIcon icon={faCircleCheck} style={{ color: "#ffffff" }} />
@@ -125,7 +127,7 @@ const ContactPage = () => {
 				</div>
 
 				<div className="relative">
-					<div className="flex flex-col mt-8 w-full items-center max-md:w-screen max-md:px-[17%]">
+					<div className={`flex flex-col mt-8 w-full items-center max-md:w-screen max-md:px-[17%] ${animateCState2} ${opacityCState}`}>
 						<div className="flex bg-red md:w-[48rem]">
 							<h1 className="font-alte-bold text-6xl justify-center">
 								<span className="text-white">Contact</span>
