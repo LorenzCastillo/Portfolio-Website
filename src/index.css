@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Coolvetica_Compressed";
+    src: url("/src/fonts/Coolvetica_Compressed.otf") format("opentype");
+  }
+  
+  @font-face {
+    font-family: "Coolvetica_Condensed_rg";
+    src: url("/src/fonts/Coolvetica_Condensed_rg.otf") format("opentype");
+  }
+  
+  @font-face {
+    font-family: "Coolvetica_Crammed_rg";
+    src: url("/src/fonts/Coolvetica_Crammed_rg.otf") format("opentype");
+  }
+  
+  @font-face {
+    font-family: "Coolvetica_rg_it";
+    src: url("/src/fonts/Coolvetica_rg_it.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: "Coolvetica_rg";
+    src: url("/src/fonts/Coolvetica_rg.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: "AlteHaasGroteskBold";
+    src: url("/src/fonts/AlteHaasGroteskBold.ttf") format("truetype");
+  }
+  
+  @font-face {
+    font-family: "AlteHaasGroteskRegular";
+    src: url("/src/fonts/AlteHaasGroteskRegular.ttf") format("truetype");
+  }
+}
