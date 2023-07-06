@@ -45,7 +45,7 @@ const MyProjectsPage = () => {
 							</h1>
 						</div>
 
-						<div className="flex justify-center mt-10">
+						<div className="flex justify-center my-12">
 							<div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
 								<ProjectCard
 									title={"QuizMe"}

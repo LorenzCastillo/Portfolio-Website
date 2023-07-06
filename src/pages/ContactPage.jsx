@@ -106,7 +106,7 @@ const ContactPage = () => {
 	return (
 		<>
 			<div ref={containerRef} className="h-screen overflow-x-hidden">
-				<img className={`${animateCState2} absolute w-screen h-screen object-cover bottom-[36rem] z-[-10]`} src={Background} />
+				<img className={`${animateCState2} fixed w-screen h-screen object-cover bottom-[36rem] z-[-10]`} src={Background} />
 				<div className={`${animateSuccessState} ${opacitySuccessState} absolute flex w-screen justify-center mt-24`}>
 					<div className="flex h-10 w-80 bg-green-500 items-center text-white font-alte-bold text-lg px-4">
 						<FontAwesomeIcon icon={faCircleCheck} style={{ color: "#ffffff" }} />
@@ -129,13 +129,13 @@ const ContactPage = () => {
 				<div className="relative">
 					<div className={`${animateCState1} ${opacityCState} flex flex-col mt-8 w-full items-center max-md:w-screen max-md:px-[17%]`}>
 						<div className="flex bg-red md:w-[48rem]">
-							<h1 className="font-alte-bold text-6xl justify-center">
+							<h1 className="font-alte-bold md:text-6xl text-5xl justify-center">
 								<span className="text-white">Contact</span>
 								<span className="text-custom-red"> Me</span>
 							</h1>
 						</div>
 
-						<div className="flex-col justify-center mt-10 max-md:w-screen max-md:px-[17%]">
+						<div className="flex-col justify-center my-12 max-md:w-screen max-md:px-[17%]">
 							<form ref={form} onSubmit={sendEmail}>
 								<div className="grid md:grid-cols-2 grid-cols-1 gap-4 md:w-[48rem]">
 									<div className="flex flex-row items-center">

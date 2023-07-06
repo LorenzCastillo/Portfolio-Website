@@ -12,6 +12,7 @@ function App() {
 	const [animateCState1, setAnimateCState1] = useState("");
 	const [animateCState2, setAnimateCState2] = useState("");
 	const [opacityCState, setOpacityCState] = useState("");
+	const [isIntroDone, setIsIntroDone] = useState(false);
 
 	const resetValues = () => {
 		setAnimateCState1("");
@@ -24,7 +25,15 @@ function App() {
 			path: "/",
 			element:
 			<AppContext.Provider value={{
-				animateCState1, setAnimateCState1, animateCState2, setAnimateCState2, opacityCState, setOpacityCState, resetValues
+				animateCState1,
+				setAnimateCState1,
+				animateCState2,
+				setAnimateCState2,
+				opacityCState,
+				setOpacityCState,
+				resetValues,
+				isIntroDone,
+				setIsIntroDone
 			}}>
 				<HomePage/>
 			</AppContext.Provider>
@@ -33,7 +42,15 @@ function App() {
 			path: "/home",
 			element:
 			<AppContext.Provider value={{
-				animateCState1, setAnimateCState1, animateCState2, setAnimateCState2, opacityCState, setOpacityCState, resetValues
+				animateCState1,
+				setAnimateCState1,
+				animateCState2,
+				setAnimateCState2,
+				opacityCState,
+				setOpacityCState,
+				resetValues,
+				isIntroDone,
+				setIsIntroDone
 			}}>
 				<HomePage/>
 			</AppContext.Provider>

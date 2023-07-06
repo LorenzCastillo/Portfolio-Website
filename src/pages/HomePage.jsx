@@ -8,12 +8,17 @@ import EmailLogo from "../images/Email-Logo.png";
 import AppContext from "../AppContext";
 
 // 3rd Party Imports
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
 	const containerRef = useRef(null);
-	const { animateCState1, animateCState2, opacityCState } = useContext(AppContext);
+	const { animateCState1, animateCState2, opacityCState, setOpacityCState, resetValues, isIntroDone, setIsIntroDone } = useContext(AppContext);
+	const [introAnimation1, setIntroAnimation1] = useState("");
+	const [introAnimation2, setIntroAnimation2] = useState("");
+	const [opacity, setOpacity] = useState("opacity-0");
+	const [backgroundOpacityAnimation, setBackgroundOpacityAnimation] = useState("");
+	const [lineWidth, setLineWidth] = useState("w-0");
 
 	const handleScrollChange = () => {
 		if (containerRef.current) {
@@ -21,6 +26,38 @@ const HomePage = () => {
 		}
 	};
 
+	// Intro Animation
+	useEffect(() => {
+		if (!isIntroDone) {
+			setOpacityCState("opacity-0");
+
+			setIntroAnimation1("animate-introFadeIn");
+			setOpacity("opacity-100");
+			setTimeout(() => {
+				setIntroAnimation2("animate-introWidthExpand");
+				setLineWidth("w-32");
+
+				setTimeout(() => {
+					setIntroAnimation1("animate-introFadeOut");
+					setIntroAnimation2("animate-introFadeOut");
+					setOpacity("opacity-0");
+
+					setTimeout(() => {
+						setOpacityCState("animate-introFadeIn");
+						setBackgroundOpacityAnimation("animate-introFadeOut");
+
+						setTimeout(() => {
+							setIsIntroDone(true);
+							resetValues();
+						}, "1000");
+
+					}, "1000");
+				}, "1500");
+			}, "800");
+		}
+	}, []);
+
+	// Close pop up menu wwhenever the window resizes
 	useEffect(() => {
 		window.addEventListener("resize", handleScrollChange); // Attach event listener on window resize
 
@@ -32,11 +69,19 @@ const HomePage = () => {
 	return (
 		<>
 			<div ref={containerRef} className="h-screen overflow-x-hidden">
+
+				{!isIntroDone &&
+					<div className={`${backgroundOpacityAnimation} fixed flex flex-col items-center justify-center bg-custom-extra-dark-blue w-screen h-screen`}>
+						<h1 className={`${introAnimation1} ${opacity} font-alte-bold text-white text-3xl z-[100]`}>Welcome!</h1>
+						<div className={`${introAnimation2} ${lineWidth} ${opacity} h-1.5 mt-2 bg-custom-red`} />
+					</div>
+				}
+
 				{/* Background */}
-				<img className={`${animateCState2} absolute w-screen h-screen object-cover z-[-10]`} src={Background} />
+				<img className={`${animateCState2} fixed w-screen h-screen object-cover z-[-10]`} src={Background} />
 
 				{/* Navigation Bar */}
-				<div className="relative">
+				<div className={`${opacityCState} relative`}>
 					<NavigationBar isHomePage={true}/>
 				</div>
 
@@ -48,8 +93,8 @@ const HomePage = () => {
 							<div className="hidden lg:flex h-[32rem] w-1 rounded-full bg-custom-red" />
 							{/* Flex column of the text content */}
 							<div className="flex flex-col lg:ml-10 lg:mt-12 lg:mr-32">
-								<h1 className="font-alte-bold text-[5rem] text-white leading-none">Hello</h1>
-								<h1 className="font-alte-bold text-[5rem] text-white leading-none">
+								<h1 className="font-alte-bold lg:text-[5rem] text-[4rem] text-custom-white leading-none">Hello</h1>
+								<h1 className="font-alte-bold lg:text-[5rem] text-[4rem] text-custom-white leading-none">
 									<span>I{"'"}m Lorenz</span>
 									<span className="text-custom-red"> Castillo</span>
 								</h1>
@@ -61,7 +106,7 @@ const HomePage = () => {
 									<div className="h-1 w-2 rounded-full bg-custom-red" />
 								</div>
 
-								<h1 className="font-alte-bold text-4xl text-white mt-6 leading-none">I am into Software / Web Development</h1>
+								<h1 className="font-alte-bold lg:text-4xl text-3xl text-custom-white mt-6 leading-none">I am into Software / Web Development</h1>
 
 								{/* MOBILE VIEW: My Portrait Photo */}
 								<div className="lg:hidden flex flex-row mt-10">

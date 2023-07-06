@@ -16,9 +16,9 @@ export default {
 		},
 		extend: {
 			colors: {
+				"custom-white": "#E9E9E9",
 				"custom-red": "#F05D5E",
 				"custom-red-hover": "#D64D4E",
-				"custom-dark-purple": "#02060F",
 				"custom-dark-blue": "#040916",
 				"custom-extra-dark-blue": "#02060F",
 				"custom-light-blue": "#111E42",
@@ -49,6 +49,10 @@ export default {
 				fadeOutSlide: "fadeOutSlide 0.7s ease-in-out",
 				backgroundUpTransition: "backgroundUpTransition 1.5s ease-in-out",
 				backgroundDownTransition: "backgroundDownTransition 1.5s ease-in-out",
+				introWidthExpand: "introWidthExpand 0.5s ease-in",
+				introFadeIn: "fadeIn 1s ease-in-out",
+				introFadeOut: "fadeOut 1s ease-in-out",
+
 			},
 			keyframes: {
 				popUpMenuIn: {
@@ -221,6 +225,14 @@ export default {
 					},
 					"100%": {
 						transform: "translate(0px, -570px)"
+					}
+				},
+				introWidthExpand: {
+					"0%": {
+						width: "0rem"
+					},
+					"100%": {
+						width: "8rem"
 					}
 				}
 			}
