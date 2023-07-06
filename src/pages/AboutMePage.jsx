@@ -3,6 +3,7 @@ import Background from "../images/Background.png";
 import NavigationBar from "../components/NavigationBar";
 import SkillCard from "../components/SkillCard";
 import ProfilePicture from "../components/ProfilePicture";
+import Profile from "../images/ProfilePictureImage.png";
 import AppContext from "../AppContext";
 // 3rd Party Imports
 import { useContext, useEffect, useRef, useState } from "react";
@@ -246,8 +247,8 @@ const AboutMePage = () => {
 								</p>
 							</div>
 
-							<div className={`${opacityState} ${fadeAnimation} flex xl:items-center xl:h-[36rem] xl:ml-24 z-10`}>
-								<ProfilePicture/>
+							<div className={`${opacityState} ${fadeAnimation} flex xl:items-center xl:justify-center xl:h-[38rem] xl:ml-24 z-10`}>
+								<img className="w-80 rounded-xl shadow-2xl" src={Profile} alt=""/>
 							</div>
 						</div>
 					</div>
