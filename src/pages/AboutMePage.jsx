@@ -2,7 +2,6 @@
 import Background from "../images/Background.png";
 import NavigationBar from "../components/NavigationBar";
 import SkillCard from "../components/SkillCard";
-import ProfilePicture from "../components/ProfilePicture";
 import Profile from "../images/ProfilePictureImage.png";
 import AppContext from "../AppContext";
 // 3rd Party Imports
