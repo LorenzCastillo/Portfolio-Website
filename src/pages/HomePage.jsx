@@ -33,7 +33,7 @@ const HomePage = () => {
 		<>
 			<div ref={containerRef} className="h-screen overflow-x-hidden">
 				{/* Background */}
-				<img className={`${animateCState2} absolute w-screen h-screen object-cover z-[-10]`} src={Background} />
+				<img className={`${animateCState2} fixed w-screen h-screen object-cover z-[-10]`} src={Background} />
 
 				{/* Navigation Bar */}
 				<div className="relative">
@@ -48,8 +48,8 @@ const HomePage = () => {
 							<div className="hidden lg:flex h-[32rem] w-1 rounded-full bg-custom-red" />
 							{/* Flex column of the text content */}
 							<div className="flex flex-col lg:ml-10 lg:mt-12 lg:mr-32">
-								<h1 className="font-alte-bold text-[5rem] text-white leading-none">Hello</h1>
-								<h1 className="font-alte-bold text-[5rem] text-white leading-none">
+								<h1 className="font-alte-bold lg:text-[5rem] text-[4rem] text-custom-white leading-none">Hello</h1>
+								<h1 className="font-alte-bold lg:text-[5rem] text-[4rem] text-custom-white leading-none">
 									<span>I{"'"}m Lorenz</span>
 									<span className="text-custom-red"> Castillo</span>
 								</h1>
@@ -61,7 +61,7 @@ const HomePage = () => {
 									<div className="h-1 w-2 rounded-full bg-custom-red" />
 								</div>
 
-								<h1 className="font-alte-bold text-4xl text-white mt-6 leading-none">I am into Software / Web Development</h1>
+								<h1 className="font-alte-bold lg:text-4xl text-3xl text-custom-white mt-6 leading-none">I am into Software / Web Development</h1>
 
 								{/* MOBILE VIEW: My Portrait Photo */}
 								<div className="lg:hidden flex flex-row mt-10">

@@ -16,6 +16,7 @@ export default {
 		},
 		extend: {
 			colors: {
+				"custom-white": "#E9E9E9",
 				"custom-red": "#F05D5E",
 				"custom-red-hover": "#D64D4E",
 				"custom-dark-purple": "#02060F",

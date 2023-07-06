@@ -126,7 +126,7 @@ const AboutMePage = () => {
 	return (
 		<>
 			<div ref={containerRef} className="h-screen overflow-x-hidden">
-				<img className={`${animateCState2} absolute w-screen h-screen object-cover`} src={Background} />
+				<img className={`${animateCState2} absolute w-screen h-screen object-cover z-[-10]`} src={Background} />
 				{/* About Me Background */}
 				<div className={`${aboutPageVisibility} ${widthAnimation} ${animateCState1} ${opacityCState} absolute h-screen lg:w-[55rem] sm:w-[40rem] w-screen bg-custom-extra-dark-blue transition-all ease-in-out duration-500`}/>
 				{/* Who I Am Background */}
@@ -168,7 +168,7 @@ const AboutMePage = () => {
 						</div>
 
 						<div className="flex flex-col mt-8">
-							<h1 className={`${opacityState} ${fadeAnimation} font-alte-bold text-6xl mb-10`}>
+							<h1 className={`${opacityState} ${fadeAnimation} font-alte-bold md:text-6xl text-5xl mb-10`}>
 								<span className="text-white">About</span>
 								<span className="text-custom-red"> Me</span>
 
@@ -178,7 +178,7 @@ const AboutMePage = () => {
 									</div>
 								</button>
 							</h1>
-							<p className={`${opacityState} ${fadeAnimation} text-white sm:w-[28rem] lg:w-[34rem] font-alte-bold lg:text-3xl text-2xl mb-10 z-20`}>
+							<p className={`${opacityState} ${fadeAnimation} text-white sm:w-[28rem] lg:w-[34rem] font-alte-bold lg:text-3xl md:text-2xl text-xl mb-10 z-20`}>
 								I am a second-year computer science
 								student at Vancouver Community College
 								with 2 years of experience with website
@@ -223,7 +223,7 @@ const AboutMePage = () => {
 
 						<div className="flex xl:flex-row flex-col">
 							<div className="flex flex-col mt-8">
-								<h1 className={`${opacityState} ${fadeAnimation} font-alte-bold text-6xl mb-10`}>
+								<h1 className={`${opacityState} ${fadeAnimation} font-alte-bold md:text-6xl text-5xl mb-10`}>
 									<span className="text-white">Who I</span>
 									<span className="text-custom-red"> Am</span>
 
@@ -233,7 +233,7 @@ const AboutMePage = () => {
 										</div>
 									</button>
 								</h1>
-								<p className={`${opacityState} ${fadeAnimation} flex flex-wrap text-white sm:w-[30rem] font-alte-bold xl:text-3xl text-2xl mb-6 z-20`}>
+								<p className={`${opacityState} ${fadeAnimation} flex flex-wrap text-white sm:w-[30rem] font-alte-bold xl:text-3xl md:text-2xl text-xl mb-6 z-20`}>
 									Born in 2001, I am graduating from Vancouver Community
 									College in August 2023 with a 2-year diploma. I currently
 									work at Fort Langley in a grocery store called Lee’s
