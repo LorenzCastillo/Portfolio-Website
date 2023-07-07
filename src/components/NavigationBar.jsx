@@ -71,9 +71,9 @@ const NavigationBar = () => {
 		// Home to About Page
 		if (location.pathname == "/" || location.pathname == "/home") {
 			setAnimateCState1("animate-fadeOutSlide");
-			setOpacityCState("opacity-0");
 
 			setTimeout(() => {
+				setOpacityCState("opacity-0");
 				setAnimateCState1("");
 				navigate("/about");
 
@@ -115,9 +115,9 @@ const NavigationBar = () => {
 		if (location.pathname == "/" || location.pathname == "/home" || location.pathname == "/about") {
 			setAnimateCState1("animate-fadeOutSlide");
 			setAnimateCState2("animate-backgroundDownTransition");
-			setOpacityCState("opacity-0");
 
 			setTimeout(() => {
+				setOpacityCState("opacity-0");
 				setAnimateCState1("");
 				setAnimateCState2("");
 				navigate("/projects");
@@ -158,9 +158,9 @@ const NavigationBar = () => {
 		if (location.pathname == "/" || location.pathname == "/home" || location.pathname == "/about") {
 			setAnimateCState1("animate-fadeOutSlide");
 			setAnimateCState2("animate-backgroundDownTransition");
-			setOpacityCState("opacity-0");
 
 			setTimeout(() => {
+				setOpacityCState("opacity-0");
 				setAnimateCState1("");
 				setAnimateCState2("");
 				navigate("/contact");
