@@ -262,6 +262,7 @@ const NavigationBar = () => {
 				</div>
 			</div>
 
+			{/* Pop up menu */}
 			<div className={`${displayStatus} ${animateState} ${opacityCState} fixed w-80 h-screen bg-custom-dark-blue top-0 right-0 text-white z-50`}>
 				<div className="flex flex-col items-end m-8">
 					<button onClick={() => handlePopupMenu()}>

@@ -189,7 +189,7 @@ const AboutMePage = () => {
 
 							<h1 className={`${opacityState} ${fadeAnimation} text-white font-alte-bold text-4xl mb-4`}>My Skills</h1>
 
-							<div className={`${opacityState} ${fadeAnimation} flex flex-col gap-2`}>
+							<div className={`${opacityState} ${fadeAnimation} flex flex-col gap-2 mb-20`}>
 								<div className="flex flex-wrap gap-2 md:w-[24rem] lg:w-[32rem]">
 									<SkillCard skill={"HTML"}/>
 									<SkillCard skill={"CSS"}/>
