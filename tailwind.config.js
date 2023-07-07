@@ -4,6 +4,9 @@ export default {
 		"./index.html",
 		"./src/**/*.{js,ts,jsx,tsx}"
 	],
+	future: {
+		hoverOnlyWhenSupported: true,
+	},
 	theme: {
 		fontFamily: {
 			"compressed": ["Coolvetica_Compressed", "sans-serif"],
