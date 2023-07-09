@@ -1,5 +1,5 @@
 // Local Imports
-import ProfilePictureImage from "../images/ProfilePictureImage.png";
+import Portrait1 from "../images/Portrait1.jpg";
 // 3rd Party Imports
 import { Tilt } from "react-tilt";
 
@@ -18,9 +18,9 @@ const defaultOptions = {
 const ProfilePicture = () => {
 	return (
 		<>
-			<div className="w-80 h-80">
+			<div className="xl:w-96 xl:h-96 w-80 h-80">
 				<Tilt options={defaultOptions}>
-					<img className="rounded-2xl shadow-2xl" src={ProfilePictureImage} alt=""/>
+					<img className="rounded-2xl shadow-2xl object-cover xl:w-96 xl:h-96 w-80 h-80" src={Portrait1} alt=""/>
 				</Tilt>
 			</div>
 		</>
