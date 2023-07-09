@@ -90,11 +90,11 @@ const HomePage = () => {
 						{/* Flex row containing first line deco, text and the image */}
 						<div className="flex flex-row items-center">
 							{/* Line decoration 1 (Disappears in mobile view)*/}
-							<div className="hidden lg:flex h-[32rem] w-1 rounded-full bg-custom-red" />
+							<div className="hidden md:flex h-[32rem] w-1 rounded-full bg-custom-red" />
 							{/* Flex column of the text content */}
-							<div className="flex flex-col lg:ml-10 lg:mt-12 lg:mr-32">
-								<h1 className="font-alte-bold lg:text-[5rem] text-[4rem] text-custom-white leading-none">Hello</h1>
-								<h1 className="font-alte-bold lg:text-[5rem] text-[4rem] text-custom-white leading-none">
+							<div className="flex flex-col md:ml-10 md:mt-12 md:mr-20">
+								<h1 className="font-alte-bold xl:text-[5rem] md:text-[4rem] text-[3rem] text-custom-white leading-none">Hello</h1>
+								<h1 className="font-alte-bold xl:text-[5rem] md:text-[4rem] text-[3rem] text-custom-white leading-none">
 									<span>I{"'"}m Lorenz</span>
 									<span className="text-custom-red"> Castillo</span>
 								</h1>
@@ -106,10 +106,10 @@ const HomePage = () => {
 									<div className="h-1 w-2 rounded-full bg-custom-red" />
 								</div>
 
-								<h1 className="font-alte-bold lg:text-4xl text-3xl text-custom-white mt-6 leading-none">I am into Software / Web Development</h1>
+								<h1 className="font-alte-bold xl:text-4xl md:text-3xl text-2xl text-custom-white mt-6 leading-none">I am into Software / Web Development</h1>
 
 								{/* MOBILE VIEW: My Portrait Photo */}
-								<div className="lg:hidden flex flex-row mt-10">
+								<div className="md:hidden flex flex-row mt-10">
 									<Link to={"https://www.linkedin.com/in/lorenzcastillo/"} className="self-center" target="_blank">
 										<img src={LinkedinLogo} alt="" width={50}/>
 									</Link>
@@ -122,13 +122,13 @@ const HomePage = () => {
 								</div>
 
 								{/* MOBILE VIEW: My Portrait Photo */}
-								<div className="lg:hidden flex flex-col mt-12 items-center">
+								<div className="md:hidden flex flex-col mt-12 items-center">
 									<ProfilePicture />
 								</div>
 							</div>
 
 							{/* My Portrait Photo */}
-							<div className="lg:flex hidden flex-col">
+							<div className="md:flex hidden flex-col">
 								<ProfilePicture />
 							</div>
 						</div>
@@ -136,16 +136,16 @@ const HomePage = () => {
 						{/* Flex row containing second line deco and logos */}
 						<div className="flex flex-row">
 							{/* Line decoration 2 (Disappears in mobile view)*/}
-							<div className="hidden lg:flex h-24 w-1 rounded-full bg-custom-red" />
+							<div className="hidden md:flex h-24 w-1 rounded-full bg-custom-red" />
 							{/* Logos */}
 							<Link to={"https://www.linkedin.com/in/lorenzcastillo/"} className="self-center" target="_blank">
-								<img src={LinkedinLogo} alt="" width={50} className="hidden lg:inline ml-10"/>
+								<img src={LinkedinLogo} alt="" width={50} className="hidden md:inline ml-10"/>
 							</Link>
 							<Link to={"https://github.com/LorenzCastillo"} className="self-center" target="_blank">
-								<img src={GithubLogo} alt="" width={50} className="hidden lg:inline ml-8"/>
+								<img src={GithubLogo} alt="" width={50} className="hidden md:inline ml-8"/>
 							</Link>
 							<a href="mailto:lorenzcastillo5524@gmail.com" className="self-center">
-								<img src={EmailLogo} alt="" width={50} className="hidden lg:inline ml-8"/>
+								<img src={EmailLogo} alt="" width={50} className="hidden md:inline ml-8"/>
 							</a>
 						</div>
 					</div>

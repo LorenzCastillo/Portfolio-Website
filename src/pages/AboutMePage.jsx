@@ -2,7 +2,7 @@
 import Background from "../images/Background.png";
 import NavigationBar from "../components/NavigationBar";
 import SkillCard from "../components/SkillCard";
-import Profile from "../images/ProfilePictureImage.png";
+import Portrait2 from "../images/Portrait2.jpg";
 import AppContext from "../AppContext";
 // 3rd Party Imports
 import { useContext, useEffect, useRef, useState } from "react";
@@ -218,10 +218,10 @@ const AboutMePage = () => {
 					<div className="flex flex-row">
 						<div className="flex flex-col mt-8 mr-[5%]">
 							<div className="hidden md:flex h-16 w-1 rounded-full bg-custom-red mb-10"/>
-							<div className="hidden md:flex h-[36rem] w-1 rounded-full bg-custom-red"/>
+							<div className="hidden md:flex xl:h-[36rem] h-[50rem] w-1 rounded-full bg-custom-red"/>
 						</div>
 
-						<div className="flex xl:flex-row flex-col">
+						<div className="flex xl:flex-row flex-col mb-12">
 							<div className="flex flex-col mt-8">
 								<h1 className={`${opacityState} ${fadeAnimation} font-alte-bold md:text-6xl text-5xl mb-10`}>
 									<span className="text-white">Who I</span>
@@ -246,8 +246,8 @@ const AboutMePage = () => {
 								</p>
 							</div>
 
-							<div className={`${opacityState} ${fadeAnimation} flex xl:items-center xl:justify-center xl:h-[38rem] xl:ml-24 z-10`}>
-								<img className="w-80 rounded-xl shadow-2xl" src={Profile} alt=""/>
+							<div className={`${opacityState} ${fadeAnimation} flex xl:items-center xl:justify-center xl:h-[40rem] xl:ml-24 z-10`}>
+								<img className="w-80 h-96 object-cover rounded-xl shadow-2xl" src={Portrait2} alt=""/>
 							</div>
 						</div>
 					</div>
