@@ -163,8 +163,8 @@ const AboutMePage = () => {
 				<div className={`${aboutPageVisibility} ${animateCState1} ${opacityCState} relative mx-[7%]`}>
 					<div className="flex flex-row">
 						<div className="flex flex-col mt-8 mr-[5%]">
-							<div className="hidden sm:flex h-16 w-1 rounded-full bg-custom-red mb-10"/>
-							<div className="hidden sm:flex h-[34rem] w-1 rounded-full bg-custom-red"/>
+							<div className="hidden md:flex h-16 w-1 rounded-full bg-custom-red mb-10"/>
+							<div className="hidden md:flex h-[30rem] w-1 rounded-full bg-custom-red"/>
 						</div>
 
 						<div className="flex flex-col mt-8">
@@ -178,7 +178,7 @@ const AboutMePage = () => {
 									</div>
 								</button>
 							</h1>
-							<p className={`${opacityState} ${fadeAnimation} text-white sm:w-[28rem] lg:w-[34rem] font-alte-bold lg:text-3xl md:text-2xl text-xl mb-10 z-20`}>
+							<p className={`${opacityState} ${fadeAnimation} text-white sm:w-[28rem] lg:w-[34rem] font-alte-bold md:text-2xl text-xl mb-10 z-20`}>
 								I am a second-year computer science
 								student at Vancouver Community College
 								with 2 years of experience with website
@@ -218,7 +218,7 @@ const AboutMePage = () => {
 					<div className="flex flex-row">
 						<div className="flex flex-col mt-8 mr-[5%]">
 							<div className="hidden md:flex h-16 w-1 rounded-full bg-custom-red mb-10"/>
-							<div className="hidden md:flex xl:h-[36rem] h-[50rem] w-1 rounded-full bg-custom-red"/>
+							<div className="hidden md:flex xl:h-[26em] h-[44rem] w-1 rounded-full bg-custom-red"/>
 						</div>
 
 						<div className="flex xl:flex-row flex-col mb-12">
@@ -233,7 +233,7 @@ const AboutMePage = () => {
 										</div>
 									</button>
 								</h1>
-								<p className={`${opacityState} ${fadeAnimation} flex flex-wrap text-white sm:w-[30rem] font-alte-bold xl:text-3xl md:text-2xl text-xl mb-6 z-20`}>
+								<p className={`${opacityState} ${fadeAnimation} flex flex-wrap text-white sm:w-[30rem] font-alte-bold xl:text-2xl text-xl mb-6 z-20`}>
 									Born in 2001, I am graduating from Vancouver Community
 									College in August 2023 with a 2-year diploma. I currently
 									work at Fort Langley in a grocery store called Lee’s
