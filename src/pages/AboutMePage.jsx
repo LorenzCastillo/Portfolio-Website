@@ -164,7 +164,7 @@ const AboutMePage = () => {
 					<div className="flex flex-row">
 						<div className="flex flex-col mt-8 mr-[5%]">
 							<div className="hidden md:flex h-16 w-1 rounded-full bg-custom-red mb-10"/>
-							<div className="hidden md:flex h-[30rem] w-1 rounded-full bg-custom-red"/>
+							<div className="hidden md:flex lg:h-[30rem] h-[36rem] w-1 rounded-full bg-custom-red"/>
 						</div>
 
 						<div className="flex flex-col mt-8">
