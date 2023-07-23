@@ -1,6 +1,6 @@
+/* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
 const ProjectCard = (props) => {
-
 	return (
 		<>
 			<div className="flex flex-col">
@@ -14,6 +14,15 @@ const ProjectCard = (props) => {
 
 				<div className="flex flex-wrap w-96 mt-2">
 					<p className="text-white font-alte-rg">{props.description}</p>
+					<div className="flex gap-4">
+						{props.stacks.map((stack) => {
+							return (
+								<div className="shadow-custom-box-dark-blue rounded-md px-3 py-2 text-white font-alte-bold mt-2">
+									<p>{stack}</p>
+								</div>
+							);
+						})}
+					</div>
 				</div>
 
 				<a href={props.url} target={"_blank"} rel="noreferrer">

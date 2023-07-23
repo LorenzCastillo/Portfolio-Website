@@ -27,6 +27,9 @@ export default {
 				"custom-light-blue": "#111E42",
 				"custom-background": "#0E2258"
 			},
+			boxShadow: {
+				"custom-box-dark-blue": "0px 2px 7px 1px #0A152F"
+			},
 			backgroundImage: {
 				"gradient-radial": "radial-gradient(var(--gradient-color-stops))"
 			},

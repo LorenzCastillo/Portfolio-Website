@@ -164,7 +164,7 @@ const AboutMePage = () => {
 					<div className="flex flex-row">
 						<div className="flex flex-col mt-8 mr-[5%]">
 							<div className="hidden md:flex h-16 w-1 rounded-full bg-custom-red mb-10"/>
-							<div className="hidden md:flex lg:h-[30rem] h-[36rem] w-1 rounded-full bg-custom-red"/>
+							<div className="hidden md:flex lg:h-[32rem] h-[38rem] w-1 rounded-full bg-custom-red"/>
 						</div>
 
 						<div className="flex flex-col mt-8">
@@ -181,10 +181,11 @@ const AboutMePage = () => {
 							<p className={`${opacityState} ${fadeAnimation} text-white sm:w-[28rem] lg:w-[34rem] font-alte-bold md:text-2xl text-xl mb-10 z-20`}>
 								I am a second-year computer science
 								student at Vancouver Community College
-								with 2 years of experience with website
-								development and design who is looking to
-								start a career in becoming a software / web
-								developer
+								set to graduate in August 2023 with a
+								2-year diploma. I have gained experience
+								with website development and design and I am
+								looking to start a career in becoming a software
+								/ web developer
 							</p>
 
 							<h1 className={`${opacityState} ${fadeAnimation} text-white font-alte-bold text-4xl mb-4`}>My Skills</h1>
@@ -218,7 +219,7 @@ const AboutMePage = () => {
 					<div className="flex flex-row">
 						<div className="flex flex-col mt-8 mr-[5%]">
 							<div className="hidden md:flex h-16 w-1 rounded-full bg-custom-red mb-10"/>
-							<div className="hidden md:flex xl:h-[26em] h-[44rem] w-1 rounded-full bg-custom-red"/>
+							<div className="hidden md:flex xl:h-[26em] h-[46rem] w-1 rounded-full bg-custom-red"/>
 						</div>
 
 						<div className="flex xl:flex-row flex-col mb-12">
@@ -233,16 +234,15 @@ const AboutMePage = () => {
 										</div>
 									</button>
 								</h1>
-								<p className={`${opacityState} ${fadeAnimation} flex flex-wrap text-white sm:w-[30rem] font-alte-bold xl:text-2xl text-xl mb-6 z-20`}>
-									Born in 2001, I am graduating from Vancouver Community
-									College in August 2023 with a 2-year diploma. I currently
-									work at Fort Langley in a grocery store called Lee’s
-									Market where I work as a Grocery / Produce clerk and
-									train new employees. I am interested in becoming a web
-									developer or a software developer, and with the
-									experience I’ve gained throughout my studies, I am
-									eager to get started with designing and / or developing
-									applications
+								<p className={`${opacityState} ${fadeAnimation} flex flex-wrap text-white sm:w-[28rem] font-alte-bold xl:text-2xl text-xl mb-6 z-20`}>
+									Born in 2001 in Burnaby, BC, I currently hold a position
+									at Lee{"'"}s Market in Fort Langley, where I work as a Grocery/Produce
+									clerk and also train new employees. My passion lies in programming,
+									and I have amassed 2 years of experience in website development
+									and design. My goal is to kickstart my career as a software/web
+									developer, and I am eager to apply the knowledge and skills gained
+									from my studies and work experience to design and develop innovative
+									applications.
 								</p>
 							</div>
 

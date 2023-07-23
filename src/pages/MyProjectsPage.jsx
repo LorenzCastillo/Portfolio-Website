@@ -49,13 +49,15 @@ const MyProjectsPage = () => {
 							<div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
 								<ProjectCard
 									title={"QuizMe"}
-									description={"QuizMe is a Quiz web app that I developed with libraries such as React.js, TailwindCSS, Axios and React Router DOM. This project was made for my 'Advanced Internet Programming & Web Apps' midterm"}
+									description={"A Quiz web app with questions fetched from opentdb.com where people can submit custom questions to test your knowledge."}
+									stacks={["ReactJS", "ViteJS", "TailwindCSS"]}
 									image={QuizMeImage}
 									url={"https://lorenzcastillo-quizme.vercel.app/"}
 								/>
 								<ProjectCard
 									title={"GiveNGo"}
-									description={"GiveNGo is a Web App for my UI/UX Design Course, it's main purpose is to post items to donate to others or to find items that others are donating for free. Made with Next.JS and storing data on the localhost, none of the data on the web app is real"}
+									description={"A web app to post items to donate to others or to find items that others are donating for free. All of the data is just fake data through localhost."}
+									stacks={["NextJS", "TailwindCSS"]}
 									image={GiveNGoImage}
 									url={"https://give-n-go.vercel.app/"}
 								/>
